@@ -60,6 +60,7 @@
       <DependentUpon>FrmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\CompositeCategory.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Pattern.cs" />
