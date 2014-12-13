@@ -10,5 +10,20 @@ namespace PatternBase.Model
     {
         public string name;
         public string description;
+
+        public string getName()
+        {
+            return name;
+        }
+
+        public void setName(string nm)
+        {
+            name = nm;
+        }
+
+        public string getDescription()
+        {
+            return description;
+        }
     }
 }
