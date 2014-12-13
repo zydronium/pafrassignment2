@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Export\Context.cs" />
+    <Compile Include="Export\IExport.cs" />
+    <Compile Include="Export\XmlStrategy.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
