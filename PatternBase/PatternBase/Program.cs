@@ -8,8 +8,8 @@ namespace PatternBase
 {
     static class Program
     {
-        public static FrmStart frmStart = new FrmStart();
-        public static FrmEditor frmEditor = new FrmEditor();
+        public static FrmStart frmStart;
+        public static FrmEditor frmEditor;
 
         /// <summary>
         /// The main entry point for the application.
@@ -19,6 +19,12 @@ namespace PatternBase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+
+            frmStart = new FrmStart();
+            frmEditor = new FrmEditor();
+
+
             Application.Run(frmStart);
         }
     }
