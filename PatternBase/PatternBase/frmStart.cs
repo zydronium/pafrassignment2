@@ -24,6 +24,14 @@ namespace PatternBase
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog.DefaultExt = "ptdb";
             this.openFileDialog.Filter = "ptdb files (*.ptdb)|*.ptdb";
+
+            this.FormClosing += this.FrmStart_FormClosing;
+        }
+
+        private void FrmStart_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            // Determine if text has changed in the textbox by comparing to original text. 
+            Application.Exit();
         }
 
         private void btnNewDatabase_Click(object sender, EventArgs e)

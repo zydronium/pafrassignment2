@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblDevider = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lblDevider
+            // 
+            this.lblDevider.AutoSize = true;
+            this.lblDevider.Location = new System.Drawing.Point(487, 13);
+            this.lblDevider.Name = "lblDevider";
+            this.lblDevider.Size = new System.Drawing.Size(35, 13);
+            this.lblDevider.TabIndex = 0;
+            this.lblDevider.Text = "label1";
             // 
             // FrmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 761);
+            this.Controls.Add(this.lblDevider);
             this.Name = "FrmEditor";
-            this.Text = "frmEditor";
+            this.Text = "Editor - PatternBase";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblDevider;
     }
 }
