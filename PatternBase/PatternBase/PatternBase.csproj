@@ -66,6 +66,9 @@
     <Compile Include="Model\Scope.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmEditor.resx">
+      <DependentUpon>FrmEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStart.resx">
       <DependentUpon>FrmStart.cs</DependentUpon>
     </EmbeddedResource>
