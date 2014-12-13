@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace PatternBase
 {
-    public partial class frmStart : Form
+    public partial class FrmStart : Form
     {
         private FolderBrowserDialog folderBrowserDialog;
         private OpenFileDialog openFileDialog;
 
-        public frmStart()
+        public FrmStart()
         {
             InitializeComponent();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -29,6 +29,8 @@ namespace PatternBase
         private void btnNewDatabase_Click(object sender, EventArgs e)
         {
             ModelContext.database = new Database();
+            Program.frmEditor.Show();
+            Program.frmStart.Hide();
         }
 
         private void btnSelectDatabase_Click(object sender, EventArgs e)
@@ -64,6 +66,8 @@ namespace PatternBase
             {
                 return;
             }
+            Program.frmEditor.Show();
+            Program.frmStart.Hide();
         }
     }
 }

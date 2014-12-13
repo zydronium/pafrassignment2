@@ -47,11 +47,17 @@
     <Compile Include="Export\ExportContext.cs" />
     <Compile Include="Export\IExport.cs" />
     <Compile Include="Export\XmlStrategy.cs" />
-    <Compile Include="frmStart.cs">
+    <Compile Include="FrmEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStart.Designer.cs">
-      <DependentUpon>frmStart.cs</DependentUpon>
+    <Compile Include="FrmEditor.Designer.cs">
+      <DependentUpon>FrmEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStart.Designer.cs">
+      <DependentUpon>FrmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Model\Database.cs" />
@@ -60,8 +66,8 @@
     <Compile Include="Model\Scope.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmStart.resx">
-      <DependentUpon>frmStart.cs</DependentUpon>
+    <EmbeddedResource Include="FrmStart.resx">
+      <DependentUpon>FrmStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

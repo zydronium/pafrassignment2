@@ -1,6 +1,6 @@
 ﻿namespace PatternBase
 {
-    partial class frmStart
+    partial class FrmStart
     {
         /// <summary>
         /// Required designer variable.
