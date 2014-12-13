@@ -88,6 +88,28 @@ namespace PatternBase.Model
             hasPurpose = plist;
         }
 
+        public Purpose getPurpose(string purposeName)
+        {
+            foreach (Purpose purp in hasPurpose)
+            {
+                if (purp.getName() == purposeName)
+                {
+                    return purp;
+                }
+            }
+            return null;
+        }
+
+        public void addPurpose(Purpose purp)
+        {
+            hasPurpose.Add(purp);
+        }
+
+        public void removePurpose(Purpose purp)
+        {
+            hasPurpose.Remove(purp);
+        }
+
         public List<Scope> getScopeList()
         {
             return hasScope;
@@ -97,6 +119,30 @@ namespace PatternBase.Model
         {
             hasScope = sclist;
         }
+
+        public Scope getScope(string scName)
+        {
+            foreach (Scope scope in hasScope)
+            {
+                if (scope.getName() == scName)
+                {
+                    return scope;
+                }
+            }
+            return null;
+        }
+
+        public void addScope(Scope scope)
+        {
+            hasScope.Add(scope);
+        }
+
+        public void removeScope(Scope scope)
+        {
+            hasScope.Remove(scope);
+        }
+
+
     }
 
 }
