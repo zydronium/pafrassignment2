@@ -33,10 +33,10 @@
             // 
             // lblDevider
             // 
-            this.lblDevider.AutoSize = true;
+            this.lblDevider.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDevider.Location = new System.Drawing.Point(487, 13);
             this.lblDevider.Name = "lblDevider";
-            this.lblDevider.Size = new System.Drawing.Size(35, 13);
+            this.lblDevider.Size = new System.Drawing.Size(2, 700);
             this.lblDevider.TabIndex = 0;
             this.lblDevider.Text = "label1";
             // 
@@ -49,7 +49,6 @@
             this.Name = "FrmEditor";
             this.Text = "Editor - PatternBase";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

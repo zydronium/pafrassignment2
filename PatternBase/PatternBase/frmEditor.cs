@@ -16,13 +16,6 @@ namespace PatternBase
         public FrmEditor()
         {
             InitializeComponent();
-
-            // separator bevel line
-            lblDevider.AutoSize = false;
-            lblDevider.Width = 2;
-            lblDevider.Height = 700;
-
-            lblDevider.BorderStyle = BorderStyle.Fixed3D;
             this.FormClosing += this.FrmEditor_FormClosing;
         }
 
