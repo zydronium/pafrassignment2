@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Export
 {
-    class Context
+    class ExportContext
     {
         private IExport exportInterface;
  
         //Constructor: assigns strategy to interface
-        public Context(IExport strategy)
+        public ExportContext(IExport strategy)
         {
             this.exportInterface = strategy;
         }
