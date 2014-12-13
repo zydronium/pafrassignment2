@@ -15,7 +15,7 @@ namespace PatternBase.Model
         public string solution;
         public string description;
         public string consequence;
-        public Purpose hasPurpose;
+        public List<Purpose> hasPurpose = new List<Purpose>();
         public List<Scope> hasScope = new List<Scope>();
     }
 }
