@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PatternBase.Model;
+using PatternBase.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +43,17 @@ namespace PatternBase
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            Scope scope = new Scope();
+            scope.setName(txtName.Text);
+            scope.setDescription(txtDescription.Text);
+            scope.setId(ModelContext.database.getId());
 
+            KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
+            Scope parent = ModelContext.database.getScopeById(Convert.ToInt32(parentItem.key));
+            parent.AddSubCategory(scope);
+            ModelContext.database.addScope(scope);
+            exitform = true;
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -51,7 +63,22 @@ namespace PatternBase
 
         private void FrmNewScope_Load(object sender, EventArgs e)
         {
+            Scope scope = ModelContext.database.getHeadScope();
+            fetchSubCategories(scope, "");
+            cbbParrent.DisplayMember = "value";
+            cbbParrent.ValueMember = "key";
+        }
 
+        private void fetchSubCategories(Scope sco, string prefix)
+        {
+            KeyValue keyValue = new KeyValue();
+            keyValue.key = sco.getId().ToString();
+            keyValue.value = prefix + sco.getName();
+            cbbParrent.Items.Add(keyValue);
+            foreach (Purpose pur in sco.getSubCategories())
+            {
+                this.fetchSubCategories(sco, "- " + prefix);
+            }
         }
     }
 }
