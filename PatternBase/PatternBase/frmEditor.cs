@@ -13,6 +13,8 @@ namespace PatternBase
     public partial class FrmEditor : Form
     {
 
+        bool exitform = false;
+
         public FrmEditor()
         {
             InitializeComponent();
@@ -21,17 +23,21 @@ namespace PatternBase
 
         private void FrmEditor_FormClosing(Object sender, FormClosingEventArgs e)
         {
-            // Display a MsgBox asking the user to save changes or abort. 
-            if (MessageBox.Show("Do you want to discart your changes?", "My Application",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (!exitform)
             {
-                Application.Exit();
-            }
-            else
-            {
-                // Cancel the Closing event from closing the form.
-                e.Cancel = true;
-                // Call method to save file...
+                // Display a MsgBox asking the user to save changes or abort. 
+                if (MessageBox.Show("Do you want to discart your changes?", "My Application",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    exitform = true;
+                    Application.Exit();
+                }
+                else
+                {
+                    // Cancel the Closing event from closing the form.
+                    e.Cancel = true;
+                    // Call method to save file...
+                }
             }
         }
 
