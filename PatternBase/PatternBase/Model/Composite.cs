@@ -11,22 +11,22 @@ namespace PatternBase.Model
     {
         public List<Component> subcategories = new List<Component>();
 
-        public void AddSubCategory(Component cat)
+        public void AddSubComponent(Component cat)
         {
             subcategories.Add(cat);
         }
 
-        public void RemoveSubCategory(Component cat)
+        public void RemoveSubComponent(Component cat)
         {
             subcategories.Remove(cat);
         }
 
-        public Component GetSubCategory(int index)
+        public Component GetSubComponent(int index)
         {
             return subcategories[index];
         }
 
-        public List<Component> getSubCategories()
+        public List<Component> getSubComponent()
         {
             return subcategories;
         }

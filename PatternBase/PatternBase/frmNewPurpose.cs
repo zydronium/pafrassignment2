@@ -51,7 +51,7 @@ namespace PatternBase
 
             KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
             Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
-            parent.AddSubCategory(purpose);
+            parent.AddSubComponent(purpose);
             Program.database.addPurpose(purpose);
             exitform = true;
             this.Close();
@@ -77,7 +77,7 @@ namespace PatternBase
             keyValue.key = purp.getId().ToString();
             keyValue.value = prefix + purp.getName();
             cbbParrent.Items.Add(keyValue);
-            foreach (Purpose pur in purp.getSubCategories())
+            foreach (Purpose pur in purp.getSubComponent())
             {
                 this.fetchSubCategories(pur, "- " + prefix);
             }

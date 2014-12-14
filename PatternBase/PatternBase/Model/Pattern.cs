@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatternBase.Objects;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,32 +8,14 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    public class Pattern
+    public class Pattern : Component
     {
-        public string name;
-        public string description;
-        public int id;
         public string context;
         public string problem;
         public string solution;
         public string consequence;
-        public List<Purpose> hasPurpose = new List<Purpose>();
-        public List<Scope> hasScope = new List<Scope>();
-
-        public string getName()
-        {
-            return name;
-        }
-
-        public void setName(string nm)
-        {
-            name = nm;
-        }
-
-        public int getId()
-        {
-            return id;
-        }
+        public List<Ids> hasPurpose = new List<Ids>();
+        public List<Ids> hasScope = new List<Ids>();
 
         public void setId(int i)
         {
@@ -69,16 +52,6 @@ namespace PatternBase.Model
             solution = sol;
         }
 
-        public string getDescription()
-        {
-            return description;
-        }
-
-        public void setDescription(string descr)
-        {
-            description = descr;
-        }
-
         public string getConsequence()
         {
             return consequence;
@@ -91,17 +64,27 @@ namespace PatternBase.Model
 
         public List<Purpose> getPurposeList()
         {
-            return hasPurpose;
+            List<Purpose> list = new List<Purpose>();
+            foreach (Ids purp in hasPurpose)
+            {
+                list.Add(Program.database.getPurposeById(purp.id));
+            }
+            return list;
         }
 
         public void setPurposeList(List<Purpose> plist)
         {
-            hasPurpose = plist;
+            hasPurpose = new List<Ids>();
+            foreach (Purpose purp in plist)
+            {
+                addPurpose(purp);
+            }
         }
 
         public Purpose getPurpose(string purposeName)
         {
-            foreach (Purpose purp in hasPurpose)
+            List<Purpose> list = getPurposeList();
+            foreach (Purpose purp in list)
             {
                 if (purp.getName() == purposeName)
                 {
@@ -113,27 +96,45 @@ namespace PatternBase.Model
 
         public void addPurpose(Purpose purp)
         {
-            hasPurpose.Add(purp);
+            Ids ids = new Ids();
+            ids.id = purp.getId();
+            hasPurpose.Add(ids);
         }
 
-        public void removePurpose(Purpose purp)
+        public void removePurpose(Scope purp)
         {
-            hasPurpose.Remove(purp);
+            foreach (Ids ids in hasPurpose)
+            {
+                if (purp.getId() == ids.id)
+                {
+                    hasPurpose.Remove(ids);
+                }
+            }
         }
 
         public List<Scope> getScopeList()
         {
-            return hasScope;
+            List<Scope> list = new List<Scope>();
+            foreach (Ids sco in hasScope)
+            {
+                list.Add(Program.database.getScopeById(sco.id));
+            }
+            return list;
         }
 
         public void setScopeList(List<Scope> sclist)
         {
-            hasScope = sclist;
+            hasScope = new List<Ids>();
+            foreach (Scope sco in sclist)
+            {
+                addScope(sco);
+            }
         }
 
         public Scope getScope(string scName)
         {
-            foreach (Scope scope in hasScope)
+            List<Scope> list = getScopeList();
+            foreach (Scope scope in list)
             {
                 if (scope.getName() == scName)
                 {
@@ -145,15 +146,21 @@ namespace PatternBase.Model
 
         public void addScope(Scope scope)
         {
-            hasScope.Add(scope);
+            Ids ids = new Ids();
+            ids.id = scope.getId();
+            hasScope.Add(ids);
         }
 
         public void removeScope(Scope scope)
         {
-            hasScope.Remove(scope);
+            foreach (Ids ids in hasScope)
+            {
+                if (scope.getId() == ids.id)
+                {
+                    hasScope.Remove(ids);
+                }
+            }
         }
-
-
     }
 
 }

@@ -50,12 +50,12 @@ namespace PatternBase
 
             KeyValue parentItemPurpose = (KeyValue)lbParrentPurpose.SelectedItem;
             Purpose parentPurpose = Program.database.getPurposeById(Convert.ToInt32(parentItemPurpose.key));
-            parentPurpose.addPattern(pattern);
+            parentPurpose.AddSubComponent(pattern);
             pattern.addPurpose(parentPurpose);
             KeyValue parentItemScope = (KeyValue)lbParrentPurpose.SelectedItem;
-            Purpose parentScope = Program.database.getPurposeById(Convert.ToInt32(parentItemScope.key));
-            parentScope.addPattern(pattern);
-            pattern.addPurpose(parentScope);
+            Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
+            parentScope.AddSubComponent(pattern);
+            pattern.addScope(parentScope);
 
             Program.database.addPattern(pattern);
             exitform = true;
@@ -86,7 +86,7 @@ namespace PatternBase
             keyValue.key = sco.getId().ToString();
             keyValue.value = prefix + sco.getName();
             lbParrentScope.Items.Add(keyValue);
-            foreach (Scope sc in sco.getSubCategories())
+            foreach (Scope sc in sco.getSubComponent())
             {
                 this.fetchSubCategories(sc, "- " + prefix);
             }
@@ -98,7 +98,7 @@ namespace PatternBase
             keyValue.key = purp.getId().ToString();
             keyValue.value = prefix + purp.getName();
             lbParrentPurpose.Items.Add(keyValue);
-            foreach (Purpose pur in purp.getSubCategories())
+            foreach (Purpose pur in purp.getSubComponent())
             {
                 this.fetchSubCategories(pur, "- " + prefix);
             }

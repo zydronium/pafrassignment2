@@ -50,7 +50,7 @@ namespace PatternBase
 
             KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
             Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
-            parent.AddSubCategory(scope);
+            parent.AddSubComponent(scope);
             Program.database.addScope(scope);
             exitform = true;
             this.Close();
@@ -76,7 +76,7 @@ namespace PatternBase
             keyValue.key = sco.getId().ToString();
             keyValue.value = prefix + sco.getName();
             cbbParrent.Items.Add(keyValue);
-            foreach (Scope sc in sco.getSubCategories())
+            foreach (Scope sc in sco.getSubComponent())
             {
                 this.fetchSubCategories(sc, "- " + prefix);
             }

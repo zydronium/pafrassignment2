@@ -11,7 +11,6 @@ namespace PatternBase.Model
         public string name;
         public string description;
         public int id;
-        public List<Pattern> patterns = new List<Pattern>();
 
         public string getName()
         {
@@ -41,50 +40,6 @@ namespace PatternBase.Model
         public void setDescription(string desc)
         {
             description = desc;
-        }
-
-        public List<Pattern> getPatternList()
-        {
-            return patterns;
-        }
-
-        public void setPatternList(List<Pattern> pattlist)
-        {
-            patterns = pattlist;
-        }
-
-        public Pattern getPattern(string patName)
-        {
-            foreach (Pattern pattern in patterns)
-            {
-                if (pattern.getName() == patName)
-                {
-                    return pattern;
-                }
-            }
-            return null;
-        }
-
-        public Pattern getPatternById(int id)
-        {
-            foreach (Pattern pattern in patterns)
-            {
-                if (pattern.getId() == id)
-                {
-                    return pattern;
-                }
-            }
-            return null;
-        }
-
-        public void addPattern(Pattern pattern)
-        {
-            patterns.Add(pattern);
-        }
-
-        public void removePattern(Pattern pattern)
-        {
-            patterns.Remove(pattern);
         }
     }
 }
