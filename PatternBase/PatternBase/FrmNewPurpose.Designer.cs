@@ -103,6 +103,7 @@
             // 
             // cbbParrent
             // 
+            this.cbbParrent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbParrent.FormattingEnabled = true;
             this.cbbParrent.Location = new System.Drawing.Point(15, 158);
             this.cbbParrent.Name = "cbbParrent";
