@@ -14,7 +14,6 @@ namespace PatternBase
 {
     public partial class FrmEditor : Form
     {
-
         private bool exitform = false;
         private FolderBrowserDialog folderBrowserDialog;
         private SaveFileDialog saveFileDialog;
@@ -96,17 +95,20 @@ namespace PatternBase
 
         private void bbtnNewPurpose_Click(object sender, EventArgs e)
         {
-
+            Program.frmNewPurpose = new FrmNewPurpose();
+            Program.frmNewPurpose.Show();
         }
 
         private void btnNewScope_Click(object sender, EventArgs e)
         {
-
+            Program.frmNewScope = new FrmNewScope();
+            Program.frmNewScope.Show();
         }
 
         private void btnNewPattern_Click(object sender, EventArgs e)
         {
-
+            Program.frmNewPattern = new FrmNewPattern();
+            Program.frmNewPattern.Show();
         }
     }
 }

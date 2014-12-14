@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FrmNewScope
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "frmNewScope";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FrmNewScope";
+            this.Text = "New Scope";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

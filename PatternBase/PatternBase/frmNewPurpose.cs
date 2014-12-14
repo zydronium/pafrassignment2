@@ -12,9 +12,31 @@ namespace PatternBase
 {
     public partial class FrmNewPurpose : Form
     {
+        private bool exitform = false;
+
         public FrmNewPurpose()
         {
             InitializeComponent();
+            this.FormClosing += this.FrmNewPurpose_FormClosing;
+        }
+
+        private void FrmNewPurpose_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            if (!exitform)
+            {
+                // Display a MsgBox asking the user to save changes or abort. 
+                if (MessageBox.Show("Do you want to discart your changes?", "PatternBase",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    exitform = true;
+                }
+                else
+                {
+                    // Cancel the Closing event from closing the form.
+                    e.Cancel = true;
+                    // Call method to save file...
+                }
+            }
         }
     }
 }
