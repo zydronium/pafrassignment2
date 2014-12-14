@@ -9,7 +9,7 @@ namespace PatternBase.Model
 {
     public class Composite : Component
     {
-        private List<Component> subcategories = new List<Component>();
+        public List<Component> subcategories = new List<Component>();
 
         public void AddSubCategory(Component cat)
         {
