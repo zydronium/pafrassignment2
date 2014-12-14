@@ -46,12 +46,12 @@ namespace PatternBase
             Scope scope = new Scope();
             scope.setName(txtName.Text);
             scope.setDescription(txtDescription.Text);
-            scope.setId(ModelContext.database.getId());
+            scope.setId(Program.database.getId());
 
             KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
-            Scope parent = ModelContext.database.getScopeById(Convert.ToInt32(parentItem.key));
+            Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
             parent.AddSubCategory(scope);
-            ModelContext.database.addScope(scope);
+            Program.database.addScope(scope);
             exitform = true;
             this.Close();
         }
@@ -63,7 +63,7 @@ namespace PatternBase
 
         private void FrmNewScope_Load(object sender, EventArgs e)
         {
-            Scope scope = ModelContext.database.getHeadScope();
+            Scope scope = Program.database.getHeadScope();
             fetchSubCategories(scope, "");
             cbbParrent.DisplayMember = "value";
             cbbParrent.ValueMember = "key";

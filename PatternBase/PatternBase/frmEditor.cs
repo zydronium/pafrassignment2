@@ -76,7 +76,7 @@ namespace PatternBase
                 {
                     // Output the requested file in richTextBox1.
                     ExportContext export = new ExportContext(new XmlStrategy());
-                    export.SaveDatabase(openFileName, ModelContext.database);
+                    export.SaveDatabase(openFileName, Program.database);
                 }
                 catch (Exception exp)
                 {

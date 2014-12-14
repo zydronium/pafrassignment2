@@ -36,23 +36,23 @@ namespace PatternBase
 
         private void btnNewDatabase_Click(object sender, EventArgs e)
         {
-            ModelContext.database = new Database();
+            Program.database = new Database();
 
             Scope scope = new Scope();
             scope.setName("Scope");
-            scope.setId(ModelContext.database.getId());
+            scope.setId(Program.database.getId());
             scope.setDescription("Head of hierachy");
             Purpose purpose = new Purpose();
             purpose.setName("Purpose");
-            purpose.setId(ModelContext.database.getId());
+            purpose.setId(Program.database.getId());
             purpose.setDescription("Head of hierachy");
 
-            ModelContext.database.setHeadScope(scope);
-            ModelContext.database.setHeadPurpose(purpose);
-            ModelContext.database.id = 0;
+            Program.database.setHeadScope(scope);
+            Program.database.setHeadPurpose(purpose);
+            Program.database.id = 0;
 
-            ModelContext.database.addPurpose(purpose);
-            ModelContext.database.addScope(scope);
+            Program.database.addPurpose(purpose);
+            Program.database.addScope(scope);
 
             Program.frmEditor.Show();
             Program.frmStart.Hide();
@@ -76,7 +76,7 @@ namespace PatternBase
                 {
                     // Output the requested file in richTextBox1.
                     ExportContext export = new ExportContext(new XmlStrategy());
-                    ModelContext.database = export.OpenDatabase(openFileName);
+                    Program.database = export.OpenDatabase(openFileName);
                 }
                 catch (Exception exp)
                 {

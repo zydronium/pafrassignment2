@@ -47,12 +47,12 @@ namespace PatternBase
             Purpose purpose = new Purpose();
             purpose.setName(txtName.Text);
             purpose.setDescription(txtDescription.Text);
-            purpose.setId(ModelContext.database.getId());
+            purpose.setId(Program.database.getId());
 
             KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
-            Purpose parent = ModelContext.database.getPurposeById(Convert.ToInt32(parentItem.key));
+            Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
             parent.AddSubCategory(purpose);
-            ModelContext.database.addPurpose(purpose);
+            Program.database.addPurpose(purpose);
             exitform = true;
             this.Close();
         }
@@ -64,7 +64,7 @@ namespace PatternBase
 
         private void FrmNewPurpose_Load(object sender, EventArgs e)
         {
-            Purpose purpose = ModelContext.database.getHeadPurpose();
+            Purpose purpose = Program.database.getHeadPurpose();
             fetchSubCategories(purpose, "");
             cbbParrent.DisplayMember = "value";
             cbbParrent.ValueMember = "key";

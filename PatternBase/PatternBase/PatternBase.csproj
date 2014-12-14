@@ -79,7 +79,6 @@
     </Compile>
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\Composite.cs" />
-    <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Pattern.cs" />
     <Compile Include="Model\Purpose.cs" />

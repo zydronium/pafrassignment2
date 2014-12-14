@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatternBase.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace PatternBase
         public static FrmNewPurpose frmNewPurpose;
         public static FrmNewScope frmNewScope;
         public static FrmNewPattern frmNewPattern;
+        public static Database database;
 
         /// <summary>
         /// The main entry point for the application.
