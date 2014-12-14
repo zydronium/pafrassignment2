@@ -38,11 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbParrentPurpose = new System.Windows.Forms.ListBox();
             this.lbParrentScope = new System.Windows.Forms.ListBox();
+            this.txtBrowse = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(93, 318);
+            this.btnCancel.Location = new System.Drawing.Point(93, 623);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -52,7 +54,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 318);
+            this.btnAdd.Location = new System.Drawing.Point(12, 623);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
@@ -128,11 +130,31 @@
             this.lbParrentScope.Size = new System.Drawing.Size(259, 69);
             this.lbParrentScope.TabIndex = 27;
             // 
+            // txtBrowse
+            // 
+            this.txtBrowse.Location = new System.Drawing.Point(13, 577);
+            this.txtBrowse.Name = "txtBrowse";
+            this.txtBrowse.ReadOnly = true;
+            this.txtBrowse.Size = new System.Drawing.Size(100, 20);
+            this.txtBrowse.TabIndex = 28;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(120, 577);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 29;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
             // FrmNewPattern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 353);
+            this.ClientSize = new System.Drawing.Size(284, 658);
+            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.txtBrowse);
             this.Controls.Add(this.lbParrentScope);
             this.Controls.Add(this.lbParrentPurpose);
             this.Controls.Add(this.label2);
@@ -163,5 +185,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lbParrentPurpose;
         private System.Windows.Forms.ListBox lbParrentScope;
+        private System.Windows.Forms.TextBox txtBrowse;
+        private System.Windows.Forms.Button btnBrowse;
     }
 }

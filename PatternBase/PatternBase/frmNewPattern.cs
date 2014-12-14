@@ -50,12 +50,12 @@ namespace PatternBase
 
             KeyValue parentItemPurpose = (KeyValue)lbParrentPurpose.SelectedItem;
             Purpose parentPurpose = Program.database.getPurposeById(Convert.ToInt32(parentItemPurpose.key));
-            parentPurpose.AddSubComponent(pattern);
             pattern.addPurpose(parentPurpose);
-            KeyValue parentItemScope = (KeyValue)lbParrentPurpose.SelectedItem;
+            parentPurpose.AddSubComponent(pattern);
+            KeyValue parentItemScope = (KeyValue)lbParrentScope.SelectedItem;
             Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
-            parentScope.AddSubComponent(pattern);
             pattern.addScope(parentScope);
+            parentScope.AddSubComponent(pattern);
 
             Program.database.addPattern(pattern);
             exitform = true;
@@ -102,6 +102,11 @@ namespace PatternBase
             {
                 this.fetchSubCategories(pur, "- " + prefix);
             }
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
