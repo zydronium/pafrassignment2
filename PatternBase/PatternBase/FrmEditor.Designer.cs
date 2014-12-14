@@ -45,6 +45,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSaveToFile = new System.Windows.Forms.Button();
+            this.bbtnNewPurpose = new System.Windows.Forms.Button();
+            this.btnNewScope = new System.Windows.Forms.Button();
+            this.btnNewPattern = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDevider
@@ -197,15 +200,48 @@
             this.btnSaveToFile.Name = "btnSaveToFile";
             this.btnSaveToFile.Size = new System.Drawing.Size(75, 23);
             this.btnSaveToFile.TabIndex = 16;
-            this.btnSaveToFile.Text = "Save to file";
+            this.btnSaveToFile.Text = "Save To File";
             this.btnSaveToFile.UseVisualStyleBackColor = true;
             this.btnSaveToFile.Click += new System.EventHandler(this.btnSaveToFile_Click);
+            // 
+            // bbtnNewPurpose
+            // 
+            this.bbtnNewPurpose.Location = new System.Drawing.Point(93, 690);
+            this.bbtnNewPurpose.Name = "bbtnNewPurpose";
+            this.bbtnNewPurpose.Size = new System.Drawing.Size(85, 23);
+            this.bbtnNewPurpose.TabIndex = 17;
+            this.bbtnNewPurpose.Text = "New Purporse";
+            this.bbtnNewPurpose.UseVisualStyleBackColor = true;
+            this.bbtnNewPurpose.Click += new System.EventHandler(this.bbtnNewPurpose_Click);
+            // 
+            // btnNewScope
+            // 
+            this.btnNewScope.Location = new System.Drawing.Point(184, 690);
+            this.btnNewScope.Name = "btnNewScope";
+            this.btnNewScope.Size = new System.Drawing.Size(75, 23);
+            this.btnNewScope.TabIndex = 18;
+            this.btnNewScope.Text = "New Scope";
+            this.btnNewScope.UseVisualStyleBackColor = true;
+            this.btnNewScope.Click += new System.EventHandler(this.btnNewScope_Click);
+            // 
+            // btnNewPattern
+            // 
+            this.btnNewPattern.Location = new System.Drawing.Point(265, 690);
+            this.btnNewPattern.Name = "btnNewPattern";
+            this.btnNewPattern.Size = new System.Drawing.Size(75, 23);
+            this.btnNewPattern.TabIndex = 19;
+            this.btnNewPattern.Text = "New Pattern";
+            this.btnNewPattern.UseVisualStyleBackColor = true;
+            this.btnNewPattern.Click += new System.EventHandler(this.btnNewPattern_Click);
             // 
             // FrmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 761);
+            this.Controls.Add(this.btnNewPattern);
+            this.Controls.Add(this.btnNewScope);
+            this.Controls.Add(this.bbtnNewPurpose);
             this.Controls.Add(this.btnSaveToFile);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
@@ -249,5 +285,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSaveToFile;
+        private System.Windows.Forms.Button bbtnNewPurpose;
+        private System.Windows.Forms.Button btnNewScope;
+        private System.Windows.Forms.Button btnNewPattern;
     }
 }

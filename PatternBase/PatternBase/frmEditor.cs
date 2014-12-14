@@ -93,5 +93,20 @@ namespace PatternBase
                 return;
             }
         }
+
+        private void bbtnNewPurpose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewScope_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewPattern_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
