@@ -37,6 +37,7 @@ namespace PatternBase
         private void btnNewDatabase_Click(object sender, EventArgs e)
         {
             Program.database = new Database();
+            Program.database.id = 0;
 
             Scope scope = new Scope();
             scope.setName("Scope");
@@ -49,7 +50,6 @@ namespace PatternBase
 
             Program.database.setHeadScope(scope);
             Program.database.setHeadPurpose(purpose);
-            Program.database.id = 0;
 
             Program.database.addPurpose(purpose);
             Program.database.addScope(scope);
