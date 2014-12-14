@@ -84,6 +84,7 @@
     <Compile Include="Model\Pattern.cs" />
     <Compile Include="Model\Purpose.cs" />
     <Compile Include="Model\Scope.cs" />
+    <Compile Include="Objects\KeyValue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmEditor.resx">

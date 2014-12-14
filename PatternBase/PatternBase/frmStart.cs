@@ -40,13 +40,16 @@ namespace PatternBase
 
             Scope scope = new Scope();
             scope.setName("Scope");
+            scope.setId(ModelContext.database.getId());
             scope.setDescription("Head of hierachy");
             Purpose purpose = new Purpose();
             purpose.setName("Purpose");
+            purpose.setId(ModelContext.database.getId());
             purpose.setDescription("Head of hierachy");
 
             ModelContext.database.setHeadScope(scope);
             ModelContext.database.setHeadPurpose(purpose);
+            ModelContext.database.id = 0;
 
             Program.frmEditor.Show();
             Program.frmStart.Hide();

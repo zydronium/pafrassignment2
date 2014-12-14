@@ -14,6 +14,13 @@ namespace PatternBase.Model
 
         public Scope headScope;
         public Purpose headPurpose;
+        public int id;
+
+        public int getId()
+        {
+            id++;
+            return id;
+        }
 
         public List<Scope> getScopeList()
         {

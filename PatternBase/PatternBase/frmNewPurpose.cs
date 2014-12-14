@@ -1,4 +1,5 @@
 ﻿using PatternBase.Model;
+using PatternBase.Objects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,6 @@ namespace PatternBase
     public partial class FrmNewPurpose : Form
     {
         private bool exitform = false;
-        private ArrayList values = new ArrayList();
 
         public FrmNewPurpose()
         {
@@ -44,7 +44,12 @@ namespace PatternBase
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            Purpose purpose = new Purpose();
+            purpose.setName(txtName.Text);
+            purpose.setDescription(txtDescription.Text);
 
+            string parentId = cbbParrent.Text;
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -56,17 +61,20 @@ namespace PatternBase
         {
             Purpose purpose = ModelContext.database.getHeadPurpose();
             fetchSubCategories(purpose, "");
-            //  values.Add(ModelContext.database.getHeadPurpose());
-
+            cbbParrent.DisplayMember = "value";
+            cbbParrent.ValueMember = "key";
         }
 
         private void fetchSubCategories(Purpose purp, string prefix)
         {
             purp.setName(prefix + purp.getName());
-            values.Add(purp);
+            KeyValue keyValue = new KeyValue();
+            keyValue.key = purp.getId().ToString();
+            keyValue.value = purp.getName();
+            cbbParrent.Items.Add(keyValue);
             foreach (Purpose pur in purp.getSubCategories())
             {
-                this.fetchSubCategories(pur, "- "+prefix);
+                this.fetchSubCategories(pur, "- " + prefix);
             }
         }
     }
