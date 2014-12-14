@@ -53,6 +53,24 @@
     <Compile Include="FrmEditor.Designer.cs">
       <DependentUpon>FrmEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNewPattern.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewPattern.Designer.cs">
+      <DependentUpon>FrmNewPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewPurpose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewPurpose.Designer.cs">
+      <DependentUpon>FrmNewPurpose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewScope.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewScope.Designer.cs">
+      <DependentUpon>FrmNewScope.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStart.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -210,7 +210,7 @@
             this.bbtnNewPurpose.Name = "bbtnNewPurpose";
             this.bbtnNewPurpose.Size = new System.Drawing.Size(85, 23);
             this.bbtnNewPurpose.TabIndex = 17;
-            this.bbtnNewPurpose.Text = "New Purporse";
+            this.bbtnNewPurpose.Text = "New Purpose";
             this.bbtnNewPurpose.UseVisualStyleBackColor = true;
             this.bbtnNewPurpose.Click += new System.EventHandler(this.bbtnNewPurpose_Click);
             // 
