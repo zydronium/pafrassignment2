@@ -26,7 +26,7 @@ namespace PatternBase
             if (!exitform)
             {
                 // Display a MsgBox asking the user to save changes or abort. 
-                if (MessageBox.Show("Do you want to discart your changes?", "My Application",
+                if (MessageBox.Show("Do you want to discart your changes?", "PatternBase",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     exitform = true;
