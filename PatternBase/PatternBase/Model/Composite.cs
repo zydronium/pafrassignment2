@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    class Composite : Component
+    public class Composite : Component
     {
         private List<Component> subcategories = new List<Component>();
 

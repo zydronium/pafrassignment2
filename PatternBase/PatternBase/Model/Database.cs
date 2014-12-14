@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    class Database
+    public class Database
     {
         public List<Scope> scopes = new List<Scope>();
         public List<Purpose> purposes = new List<Purpose>();
