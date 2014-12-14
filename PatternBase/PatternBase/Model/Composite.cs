@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    class CompositeCategory : Category
+    class Composite : Component
     {
-        private List<Category> subcategories = new List<Category>();
+        private List<Component> subcategories = new List<Component>();
 
-        public void AddSubCategory(Category cat)
+        public void AddSubCategory(Component cat)
         {
             subcategories.Add(cat);
         }
 
-        public void RemoveSubCategory(Category cat)
+        public void RemoveSubCategory(Component cat)
         {
             subcategories.Remove(cat);
         }
 
-        public Category GetSubCategory(int index)
+        public Component GetSubCategory(int index)
         {
             return subcategories[index];
         }

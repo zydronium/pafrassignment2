@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    class Pattern
+    class Pattern : Component
     {
-        public string name;
         public string context;
         public string problem;
         public string solution;
-        public string description;
         public string consequence;
         public List<Purpose> hasPurpose = new List<Purpose>();
         public List<Scope> hasScope = new List<Scope>();

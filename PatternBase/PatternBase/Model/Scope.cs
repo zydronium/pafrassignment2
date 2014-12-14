@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    class Scope : Category
+    class Scope : Composite
     {
         
     }
