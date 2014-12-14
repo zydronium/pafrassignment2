@@ -68,6 +68,7 @@ namespace PatternBase
             fetchSubCategories(purpose, "");
             cbbParrent.DisplayMember = "value";
             cbbParrent.ValueMember = "key";
+            cbbParrent.SelectedIndex = 0;
         }
 
         private void fetchSubCategories(Purpose purp, string prefix)

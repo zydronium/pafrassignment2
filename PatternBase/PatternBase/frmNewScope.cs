@@ -67,6 +67,7 @@ namespace PatternBase
             fetchSubCategories(scope, "");
             cbbParrent.DisplayMember = "value";
             cbbParrent.ValueMember = "key";
+            cbbParrent.SelectedIndex = 0;
         }
 
         private void fetchSubCategories(Scope sco, string prefix)
