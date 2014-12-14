@@ -89,6 +89,15 @@
     <EmbeddedResource Include="FrmEditor.resx">
       <DependentUpon>FrmEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNewPattern.resx">
+      <DependentUpon>FrmNewPattern.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewPurpose.resx">
+      <DependentUpon>FrmNewPurpose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewScope.resx">
+      <DependentUpon>FrmNewScope.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStart.resx">
       <DependentUpon>FrmStart.cs</DependentUpon>
     </EmbeddedResource>

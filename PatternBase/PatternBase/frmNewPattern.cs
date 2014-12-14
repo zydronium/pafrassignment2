@@ -25,7 +25,7 @@ namespace PatternBase
             if (!exitform)
             {
                 // Display a MsgBox asking the user to save changes or abort. 
-                if (MessageBox.Show("Do you want to discart your changes?", "PatternBase",
+                if (MessageBox.Show("Cancel creating new pattern?", "PatternBase",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     exitform = true;
@@ -37,6 +37,16 @@ namespace PatternBase
                     // Call method to save file...
                 }
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
