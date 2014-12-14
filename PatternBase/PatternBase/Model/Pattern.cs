@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    public class Pattern : Component
+    public class Pattern
     {
+        public string name;
+        public string description;
+        public int id;
         public string context;
         public string problem;
         public string solution;
@@ -24,6 +27,16 @@ namespace PatternBase.Model
         public void setName(string nm)
         {
             name = nm;
+        }
+
+        public int getId()
+        {
+            return id;
+        }
+
+        public void setId(int i)
+        {
+            id = i;
         }
 
         public string getContext() 
