@@ -21,6 +21,7 @@ namespace PatternBase
         {
             InitializeComponent();
             this.FormClosing += this.FrmNewPurpose_FormClosing;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckKeys);
         }
 
         private void FrmNewPurpose_FormClosing(Object sender, FormClosingEventArgs e)
@@ -39,6 +40,14 @@ namespace PatternBase
                     e.Cancel = true;
                     // Call method to save file...
                 }
+            }
+        }
+
+        private void CheckKeys(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.btnAdd_Click(sender, e);
             }
         }
 
@@ -69,6 +78,7 @@ namespace PatternBase
             cbbParrent.DisplayMember = "value";
             cbbParrent.ValueMember = "key";
             cbbParrent.SelectedIndex = 0;
+            this.ActiveControl = this.txtName;
         }
 
         private void fetchSubCategories(Purpose purp, string prefix)

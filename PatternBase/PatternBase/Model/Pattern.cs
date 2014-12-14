@@ -10,7 +10,6 @@ namespace PatternBase.Model
 {
     public class Pattern : Component
     {
-        public string context;
         public string problem;
         public string solution;
         public string consequence;
@@ -20,16 +19,6 @@ namespace PatternBase.Model
         public void setId(int i)
         {
             id = i;
-        }
-
-        public string getContext() 
-        {
-            return context;
-        }
-
-        public void setContext(string ctxt)
-        {
-            context = ctxt;
         }
 
         public string getProblem()

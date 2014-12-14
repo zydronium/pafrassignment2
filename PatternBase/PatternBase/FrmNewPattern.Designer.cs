@@ -40,6 +40,10 @@
             this.lbParrentScope = new System.Windows.Forms.ListBox();
             this.txtBrowse = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -65,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 141);
+            this.label1.Location = new System.Drawing.Point(10, 331);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 23;
@@ -108,7 +112,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 228);
+            this.label2.Location = new System.Drawing.Point(10, 420);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 25;
@@ -117,7 +121,7 @@
             // lbParrentPurpose
             // 
             this.lbParrentPurpose.FormattingEnabled = true;
-            this.lbParrentPurpose.Location = new System.Drawing.Point(12, 158);
+            this.lbParrentPurpose.Location = new System.Drawing.Point(13, 348);
             this.lbParrentPurpose.Name = "lbParrentPurpose";
             this.lbParrentPurpose.Size = new System.Drawing.Size(259, 69);
             this.lbParrentPurpose.TabIndex = 26;
@@ -125,7 +129,7 @@
             // lbParrentScope
             // 
             this.lbParrentScope.FormattingEnabled = true;
-            this.lbParrentScope.Location = new System.Drawing.Point(12, 244);
+            this.lbParrentScope.Location = new System.Drawing.Point(13, 436);
             this.lbParrentScope.Name = "lbParrentScope";
             this.lbParrentScope.Size = new System.Drawing.Size(259, 69);
             this.lbParrentScope.TabIndex = 27;
@@ -148,11 +152,53 @@
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 145);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Problem";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(13, 161);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(259, 74);
+            this.textBox1.TabIndex = 31;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(12, 254);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(259, 74);
+            this.textBox2.TabIndex = 33;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 238);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Consequence";
+            // 
             // FrmNewPattern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 658);
+            this.ClientSize = new System.Drawing.Size(284, 657);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtBrowse);
             this.Controls.Add(this.lbParrentScope);
@@ -187,5 +233,9 @@
         private System.Windows.Forms.ListBox lbParrentScope;
         private System.Windows.Forms.TextBox txtBrowse;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
     }
 }
