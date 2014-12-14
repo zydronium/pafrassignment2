@@ -124,6 +124,7 @@
             this.Controls.Add(this.btnAdd);
             this.Name = "FrmNewScope";
             this.Text = "New Scope";
+            this.Load += new System.EventHandler(this.FrmNewScope_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

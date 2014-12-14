@@ -124,6 +124,7 @@
             this.Controls.Add(this.btnAdd);
             this.Name = "FrmNewPurpose";
             this.Text = "New Purpose";
+            this.Load += new System.EventHandler(this.FrmNewPurpose_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

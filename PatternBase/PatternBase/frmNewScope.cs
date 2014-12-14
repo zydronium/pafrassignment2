@@ -48,5 +48,10 @@ namespace PatternBase
         {
             this.Close();
         }
+
+        private void FrmNewScope_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
