@@ -34,6 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbbParrent = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -90,11 +92,30 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Description";
             // 
+            // cbbParrent
+            // 
+            this.cbbParrent.FormattingEnabled = true;
+            this.cbbParrent.Location = new System.Drawing.Point(15, 158);
+            this.cbbParrent.Name = "cbbParrent";
+            this.cbbParrent.Size = new System.Drawing.Size(259, 21);
+            this.cbbParrent.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 141);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Parrent";
+            // 
             // FrmNewScope
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.cbbParrent);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtName);
@@ -116,5 +137,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbbParrent;
+        private System.Windows.Forms.Label label1;
     }
 }

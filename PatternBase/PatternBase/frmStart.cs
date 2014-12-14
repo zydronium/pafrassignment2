@@ -37,6 +37,17 @@ namespace PatternBase
         private void btnNewDatabase_Click(object sender, EventArgs e)
         {
             ModelContext.database = new Database();
+
+            Scope scope = new Scope();
+            scope.setName("Scope");
+            scope.setDescription("Head of hierachy");
+            Purpose purpose = new Purpose();
+            purpose.setName("Purpose");
+            purpose.setDescription("Head of hierachy");
+
+            ModelContext.database.setHeadScope(scope);
+            ModelContext.database.setHeadPurpose(purpose);
+
             Program.frmEditor.Show();
             Program.frmStart.Hide();
         }

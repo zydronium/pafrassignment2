@@ -12,6 +12,9 @@ namespace PatternBase.Model
         public List<Purpose> purposes = new List<Purpose>();
         public List<Pattern> patterns = new List<Pattern>();
 
+        public Scope headScope;
+        public Purpose headPurpose;
+
         public List<Scope> getScopeList()
         {
             return scopes;
@@ -106,6 +109,26 @@ namespace PatternBase.Model
         public void removePattern(Pattern pattern)
         {
             patterns.Remove(pattern);
+        }
+
+        public void setHeadScope(Scope scope)
+        {
+            headScope = scope;
+        }
+
+        public Scope getHeadScope()
+        {
+            return headScope;
+        }
+
+        public void setHeadPurpose(Purpose purpose)
+        {
+            headPurpose = purpose;
+        }
+
+        public Purpose getHeadPurpose()
+        {
+            return headPurpose;
         }
     }
 }
