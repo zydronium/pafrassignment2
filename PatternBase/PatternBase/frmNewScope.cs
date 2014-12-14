@@ -52,7 +52,6 @@ namespace PatternBase
             Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
             parent.AddSubCategory(scope);
             Program.database.addScope(scope);
-            Program.database = Program.database;
             exitform = true;
             this.Close();
         }
