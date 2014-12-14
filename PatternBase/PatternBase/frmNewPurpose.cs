@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PatternBase.Model;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace PatternBase
     public partial class FrmNewPurpose : Form
     {
         private bool exitform = false;
+        private ArrayList values = new ArrayList();
 
         public FrmNewPurpose()
         {
@@ -51,7 +54,20 @@ namespace PatternBase
 
         private void FrmNewPurpose_Load(object sender, EventArgs e)
         {
+            Purpose purpose = ModelContext.database.getHeadPurpose();
+            fetchSubCategories(purpose, "");
+            //  values.Add(ModelContext.database.getHeadPurpose());
 
+        }
+
+        private void fetchSubCategories(Purpose purp, string prefix)
+        {
+            purp.setName(prefix + purp.getName());
+            values.Add(purp);
+            foreach (Purpose pur in purp.getSubCategories())
+            {
+                this.fetchSubCategories(pur, "- "+prefix);
+            }
         }
     }
 }

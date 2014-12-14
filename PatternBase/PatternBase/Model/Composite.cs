@@ -26,6 +26,11 @@ namespace PatternBase.Model
             return subcategories[index];
         }
 
+        public List<Component> getSubCategories()
+        {
+            return subcategories;
+        }
+
     }
 }
 
