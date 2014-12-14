@@ -47,9 +47,14 @@ namespace PatternBase
             Purpose purpose = new Purpose();
             purpose.setName(txtName.Text);
             purpose.setDescription(txtDescription.Text);
+            purpose.setId(ModelContext.database.getId());
 
-            string parentId = cbbParrent.Text;
-            
+            KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
+            Purpose parent = ModelContext.database.getPurposeById(Convert.ToInt32(parentItem.key));
+            parent.AddSubCategory(purpose);
+            ModelContext.database.addPurpose(purpose);
+            exitform = true;
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -67,10 +72,9 @@ namespace PatternBase
 
         private void fetchSubCategories(Purpose purp, string prefix)
         {
-            purp.setName(prefix + purp.getName());
             KeyValue keyValue = new KeyValue();
             keyValue.key = purp.getId().ToString();
-            keyValue.value = purp.getName();
+            keyValue.value = prefix + purp.getName();
             cbbParrent.Items.Add(keyValue);
             foreach (Purpose pur in purp.getSubCategories())
             {

@@ -51,6 +51,9 @@ namespace PatternBase
             ModelContext.database.setHeadPurpose(purpose);
             ModelContext.database.id = 0;
 
+            ModelContext.database.addPurpose(purpose);
+            ModelContext.database.addScope(scope);
+
             Program.frmEditor.Show();
             Program.frmStart.Hide();
         }

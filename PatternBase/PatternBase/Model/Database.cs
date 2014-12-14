@@ -44,6 +44,18 @@ namespace PatternBase.Model
             return null;
         }
 
+        public Scope getScopeById(int id)
+        {
+            foreach (Scope scope in scopes)
+            {
+                if (scope.getId() == id)
+                {
+                    return scope;
+                }
+            }
+            return null;
+        }
+
         public void addScope(Scope scope)
         {
             scopes.Add(scope);
@@ -76,6 +88,18 @@ namespace PatternBase.Model
             return null;
         }
 
+        public Purpose getPurposeById(int id)
+        {
+            foreach (Purpose purpose in purposes)
+            {
+                if (purpose.getId() == id)
+                {
+                    return purpose;
+                }
+            }
+            return null;
+        }
+
         public void addPurpose(Purpose purpose)
         {
             purposes.Add(purpose);
@@ -101,6 +125,18 @@ namespace PatternBase.Model
             foreach (Pattern pattern in patterns)
             {
                 if (pattern.getName() == patName)
+                {
+                    return pattern;
+                }
+            }
+            return null;
+        }
+
+        public Pattern getPatternById(int id)
+        {
+            foreach (Pattern pattern in patterns)
+            {
+                if (pattern.getId() == id)
                 {
                     return pattern;
                 }
