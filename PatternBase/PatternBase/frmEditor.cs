@@ -16,23 +16,23 @@ namespace PatternBase
         public FrmEditor()
         {
             InitializeComponent();
-        //    this.FormClosing += this.FrmEditor_FormClosing;
+            this.FormClosing += this.FrmEditor_FormClosing;
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-            if (!e.Cancel)
-            {
-                if (MessageBox.Show("Really?", "Close", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
         private void FrmEditor_FormClosing(Object sender, FormClosingEventArgs e)
         {
-
+            // Display a MsgBox asking the user to save changes or abort. 
+            if (MessageBox.Show("Do you want to discart your changes?", "My Application",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                // Cancel the Closing event from closing the form.
+                e.Cancel = true;
+                // Call method to save file...
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
