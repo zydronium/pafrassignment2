@@ -15,6 +15,8 @@ namespace PatternBase
     public partial class FrmNewPattern : Form
     {
         private bool exitform = false;
+        private FolderBrowserDialog folderBrowserDialog;
+        private OpenFileDialog openFileDialog;
 
         public FrmNewPattern()
         {
@@ -47,15 +49,17 @@ namespace PatternBase
             pattern.setName(txtName.Text);
             pattern.setDescription(txtDescription.Text);
             pattern.setId(Program.database.getId());
+            ComponentId componentId = new ComponentId();
+            componentId.setId(pattern.getId());
 
             KeyValue parentItemPurpose = (KeyValue)lbParrentPurpose.SelectedItem;
             Purpose parentPurpose = Program.database.getPurposeById(Convert.ToInt32(parentItemPurpose.key));
             pattern.addPurpose(parentPurpose);
-            parentPurpose.AddSubComponent(pattern);
+            parentPurpose.AddSubComponent(componentId);
             KeyValue parentItemScope = (KeyValue)lbParrentScope.SelectedItem;
             Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
             pattern.addScope(parentScope);
-            parentScope.AddSubComponent(pattern);
+            parentScope.AddSubComponent(componentId);
 
             Program.database.addPattern(pattern);
             exitform = true;
@@ -105,16 +109,6 @@ namespace PatternBase
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

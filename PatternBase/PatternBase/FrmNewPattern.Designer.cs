@@ -41,8 +41,8 @@
             this.txtBrowse = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtProblem = new System.Windows.Forms.TextBox();
+            this.txtConsequence = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -160,26 +160,24 @@
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "Problem";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox1
+            // txtProblem
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 161);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(259, 74);
-            this.textBox1.TabIndex = 31;
+            this.txtProblem.Location = new System.Drawing.Point(13, 161);
+            this.txtProblem.Multiline = true;
+            this.txtProblem.Name = "txtProblem";
+            this.txtProblem.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtProblem.Size = new System.Drawing.Size(259, 74);
+            this.txtProblem.TabIndex = 31;
             // 
-            // textBox2
+            // txtConsequence
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 254);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(259, 74);
-            this.textBox2.TabIndex = 33;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtConsequence.Location = new System.Drawing.Point(12, 254);
+            this.txtConsequence.Multiline = true;
+            this.txtConsequence.Name = "txtConsequence";
+            this.txtConsequence.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtConsequence.Size = new System.Drawing.Size(259, 74);
+            this.txtConsequence.TabIndex = 33;
             // 
             // label5
             // 
@@ -195,9 +193,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 657);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtConsequence);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtProblem);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtBrowse);
@@ -234,8 +232,8 @@
         private System.Windows.Forms.TextBox txtBrowse;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtProblem;
+        private System.Windows.Forms.TextBox txtConsequence;
         private System.Windows.Forms.Label label5;
     }
 }
