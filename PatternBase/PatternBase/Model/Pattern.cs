@@ -16,11 +16,6 @@ namespace PatternBase.Model
         public List<Ids> hasPurpose = new List<Ids>();
         public List<Ids> hasScope = new List<Ids>();
 
-        public void setId(int i)
-        {
-            id = i;
-        }
-
         public string getProblem()
         {
             return problem;
