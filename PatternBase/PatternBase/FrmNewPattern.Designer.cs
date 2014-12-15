@@ -44,6 +44,8 @@
             this.txtProblem = new System.Windows.Forms.TextBox();
             this.txtConsequence = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtSolution = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -69,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 331);
+            this.label1.Location = new System.Drawing.Point(9, 425);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 23;
@@ -112,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 420);
+            this.label2.Location = new System.Drawing.Point(9, 474);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 25;
@@ -121,17 +123,17 @@
             // lbParrentPurpose
             // 
             this.lbParrentPurpose.FormattingEnabled = true;
-            this.lbParrentPurpose.Location = new System.Drawing.Point(13, 348);
+            this.lbParrentPurpose.Location = new System.Drawing.Point(12, 441);
             this.lbParrentPurpose.Name = "lbParrentPurpose";
-            this.lbParrentPurpose.Size = new System.Drawing.Size(259, 69);
+            this.lbParrentPurpose.Size = new System.Drawing.Size(259, 30);
             this.lbParrentPurpose.TabIndex = 26;
             // 
             // lbParrentScope
             // 
             this.lbParrentScope.FormattingEnabled = true;
-            this.lbParrentScope.Location = new System.Drawing.Point(13, 436);
+            this.lbParrentScope.Location = new System.Drawing.Point(12, 490);
             this.lbParrentScope.Name = "lbParrentScope";
-            this.lbParrentScope.Size = new System.Drawing.Size(259, 69);
+            this.lbParrentScope.Size = new System.Drawing.Size(259, 30);
             this.lbParrentScope.TabIndex = 27;
             // 
             // txtBrowse
@@ -172,7 +174,7 @@
             // 
             // txtConsequence
             // 
-            this.txtConsequence.Location = new System.Drawing.Point(12, 254);
+            this.txtConsequence.Location = new System.Drawing.Point(12, 348);
             this.txtConsequence.Multiline = true;
             this.txtConsequence.Name = "txtConsequence";
             this.txtConsequence.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -182,17 +184,37 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 238);
+            this.label5.Location = new System.Drawing.Point(11, 332);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 32;
             this.label5.Text = "Consequence";
+            // 
+            // txtSolution
+            // 
+            this.txtSolution.Location = new System.Drawing.Point(12, 255);
+            this.txtSolution.Multiline = true;
+            this.txtSolution.Name = "txtSolution";
+            this.txtSolution.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSolution.Size = new System.Drawing.Size(259, 74);
+            this.txtSolution.TabIndex = 35;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 239);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Solution";
             // 
             // FrmNewPattern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 657);
+            this.Controls.Add(this.txtSolution);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtConsequence);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtProblem);
@@ -235,5 +257,7 @@
         private System.Windows.Forms.TextBox txtProblem;
         private System.Windows.Forms.TextBox txtConsequence;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSolution;
+        private System.Windows.Forms.Label label7;
     }
 }
