@@ -87,7 +87,7 @@ namespace PatternBase
             keyValue.key = purp.getId().ToString();
             keyValue.value = prefix + purp.getName();
             cbbParrent.Items.Add(keyValue);
-            foreach (Purpose pur in purp.getSubComponent())
+            foreach (Purpose pur in purp.getSubComponents())
             {
                 this.fetchSubCategories(pur, "- " + prefix);
             }

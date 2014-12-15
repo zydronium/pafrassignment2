@@ -76,7 +76,7 @@ namespace PatternBase
             keyValue.key = sco.getId().ToString();
             keyValue.value = prefix + sco.getName();
             cbbParrent.Items.Add(keyValue);
-            foreach (Scope sc in sco.getSubComponent())
+            foreach (Scope sc in sco.getSubComponents())
             {
                 this.fetchSubCategories(sc, "- " + prefix);
             }
