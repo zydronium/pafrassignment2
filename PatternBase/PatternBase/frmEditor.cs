@@ -1,5 +1,6 @@
 ﻿using PatternBase.Export;
 using PatternBase.Model;
+using PatternBase.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,6 +110,46 @@ namespace PatternBase
         {
             Program.frmNewPattern = new FrmNewPattern();
             Program.frmNewPattern.Show();
+        }
+
+        private void FrmEditor_Load(object sender, EventArgs e)
+        {
+            this.AutoSize = true;
+
+            Scope scope = Program.database.getHeadScope();
+            fetchSubCategories(scope, "");
+            lbScope.DisplayMember = "value";
+            lbScope.ValueMember = "key";
+
+            Purpose purpose = Program.database.getHeadPurpose();
+            fetchSubCategories(purpose, "");
+            lbPurpose.DisplayMember = "value";
+            lbPurpose.ValueMember = "key";
+
+        }
+
+        private void fetchSubCategories(Purpose purp, string prefix)
+        {
+            KeyValue keyValue = new KeyValue();
+            keyValue.key = purp.getId().ToString();
+            keyValue.value = prefix + purp.getName();
+            lbPurpose.Items.Add(keyValue);
+            foreach (Purpose pur in purp.getSubComponents())
+            {
+                this.fetchSubCategories(pur, "- " + prefix);
+            }
+        }
+
+        private void fetchSubCategories(Scope scope, string prefix)
+        {
+            KeyValue keyValue = new KeyValue();
+            keyValue.key = scope.getId().ToString();
+            keyValue.value = prefix + scope.getName();
+            lbScope.Items.Add(keyValue);
+            foreach (Scope pur in scope.getSubComponents())
+            {
+                this.fetchSubCategories(pur, "- " + prefix);
+            }
         }
     }
 }

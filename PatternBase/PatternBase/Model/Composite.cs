@@ -26,7 +26,7 @@ namespace PatternBase.Model
             return subcategories[index];
         }
 
-        public List<Component> getSubComponent()
+        public List<Component> getSubComponents()
         {
             return subcategories;
         }

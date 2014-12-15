@@ -48,6 +48,12 @@
             this.bbtnNewPurpose = new System.Windows.Forms.Button();
             this.btnNewScope = new System.Windows.Forms.Button();
             this.btnNewPattern = new System.Windows.Forms.Button();
+            this.labelPurpose = new System.Windows.Forms.Label();
+            this.lbPurpose = new System.Windows.Forms.ListBox();
+            this.lbScope = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbProblems = new System.Windows.Forms.ListBox();
+            this.lbSolutions = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblDevider
@@ -55,7 +61,7 @@
             this.lblDevider.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDevider.Location = new System.Drawing.Point(487, 13);
             this.lblDevider.Name = "lblDevider";
-            this.lblDevider.Size = new System.Drawing.Size(2, 700);
+            this.lblDevider.Size = new System.Drawing.Size(2, 550);
             this.lblDevider.TabIndex = 0;
             this.lblDevider.Text = "label1";
             // 
@@ -176,7 +182,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(499, 690);
+            this.btnSave.Location = new System.Drawing.Point(500, 543);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 14;
@@ -186,7 +192,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(580, 690);
+            this.btnDelete.Location = new System.Drawing.Point(581, 543);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 15;
@@ -196,7 +202,7 @@
             // 
             // btnSaveToFile
             // 
-            this.btnSaveToFile.Location = new System.Drawing.Point(12, 690);
+            this.btnSaveToFile.Location = new System.Drawing.Point(13, 543);
             this.btnSaveToFile.Name = "btnSaveToFile";
             this.btnSaveToFile.Size = new System.Drawing.Size(75, 23);
             this.btnSaveToFile.TabIndex = 16;
@@ -206,7 +212,7 @@
             // 
             // bbtnNewPurpose
             // 
-            this.bbtnNewPurpose.Location = new System.Drawing.Point(93, 690);
+            this.bbtnNewPurpose.Location = new System.Drawing.Point(94, 543);
             this.bbtnNewPurpose.Name = "bbtnNewPurpose";
             this.bbtnNewPurpose.Size = new System.Drawing.Size(85, 23);
             this.bbtnNewPurpose.TabIndex = 17;
@@ -216,7 +222,7 @@
             // 
             // btnNewScope
             // 
-            this.btnNewScope.Location = new System.Drawing.Point(184, 690);
+            this.btnNewScope.Location = new System.Drawing.Point(185, 543);
             this.btnNewScope.Name = "btnNewScope";
             this.btnNewScope.Size = new System.Drawing.Size(75, 23);
             this.btnNewScope.TabIndex = 18;
@@ -226,7 +232,7 @@
             // 
             // btnNewPattern
             // 
-            this.btnNewPattern.Location = new System.Drawing.Point(265, 690);
+            this.btnNewPattern.Location = new System.Drawing.Point(266, 543);
             this.btnNewPattern.Name = "btnNewPattern";
             this.btnNewPattern.Size = new System.Drawing.Size(75, 23);
             this.btnNewPattern.TabIndex = 19;
@@ -234,11 +240,67 @@
             this.btnNewPattern.UseVisualStyleBackColor = true;
             this.btnNewPattern.Click += new System.EventHandler(this.btnNewPattern_Click);
             // 
+            // labelPurpose
+            // 
+            this.labelPurpose.AutoSize = true;
+            this.labelPurpose.Location = new System.Drawing.Point(13, 29);
+            this.labelPurpose.Name = "labelPurpose";
+            this.labelPurpose.Size = new System.Drawing.Size(46, 13);
+            this.labelPurpose.TabIndex = 22;
+            this.labelPurpose.Text = "Purpose";
+            // 
+            // lbPurpose
+            // 
+            this.lbPurpose.FormattingEnabled = true;
+            this.lbPurpose.Location = new System.Drawing.Point(16, 46);
+            this.lbPurpose.Name = "lbPurpose";
+            this.lbPurpose.Size = new System.Drawing.Size(204, 173);
+            this.lbPurpose.TabIndex = 25;
+            // 
+            // lbScope
+            // 
+            this.lbScope.FormattingEnabled = true;
+            this.lbScope.Location = new System.Drawing.Point(226, 46);
+            this.lbScope.Name = "lbScope";
+            this.lbScope.Size = new System.Drawing.Size(204, 173);
+            this.lbScope.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(223, 29);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Scope";
+            // 
+            // lbProblems
+            // 
+            this.lbProblems.FormattingEnabled = true;
+            this.lbProblems.Location = new System.Drawing.Point(16, 244);
+            this.lbProblems.Name = "lbProblems";
+            this.lbProblems.Size = new System.Drawing.Size(204, 95);
+            this.lbProblems.TabIndex = 28;
+            // 
+            // lbSolutions
+            // 
+            this.lbSolutions.FormattingEnabled = true;
+            this.lbSolutions.Location = new System.Drawing.Point(226, 244);
+            this.lbSolutions.Name = "lbSolutions";
+            this.lbSolutions.Size = new System.Drawing.Size(204, 95);
+            this.lbSolutions.TabIndex = 29;
+            // 
             // FrmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 761);
+            this.ClientSize = new System.Drawing.Size(1008, 576);
+            this.Controls.Add(this.lbSolutions);
+            this.Controls.Add(this.lbProblems);
+            this.Controls.Add(this.lbScope);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lbPurpose);
+            this.Controls.Add(this.labelPurpose);
             this.Controls.Add(this.btnNewPattern);
             this.Controls.Add(this.btnNewScope);
             this.Controls.Add(this.bbtnNewPurpose);
@@ -261,6 +323,7 @@
             this.Controls.Add(this.lblDevider);
             this.Name = "FrmEditor";
             this.Text = "Editor - PatternBase";
+            this.Load += new System.EventHandler(this.FrmEditor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +351,11 @@
         private System.Windows.Forms.Button bbtnNewPurpose;
         private System.Windows.Forms.Button btnNewScope;
         private System.Windows.Forms.Button btnNewPattern;
+        private System.Windows.Forms.Label labelPurpose;
+        private System.Windows.Forms.ListBox lbPurpose;
+        private System.Windows.Forms.ListBox lbScope;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox lbProblems;
+        private System.Windows.Forms.ListBox lbSolutions;
     }
 }

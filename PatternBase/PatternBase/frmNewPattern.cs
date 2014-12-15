@@ -90,7 +90,7 @@ namespace PatternBase
             keyValue.key = sco.getId().ToString();
             keyValue.value = prefix + sco.getName();
             lbParrentScope.Items.Add(keyValue);
-            foreach (Scope sc in sco.getSubComponent())
+            foreach (Scope sc in sco.getSubComponents())
             {
                 this.fetchSubCategories(sc, "- " + prefix);
             }
@@ -102,7 +102,7 @@ namespace PatternBase
             keyValue.key = purp.getId().ToString();
             keyValue.value = prefix + purp.getName();
             lbParrentPurpose.Items.Add(keyValue);
-            foreach (Purpose pur in purp.getSubComponent())
+            foreach (Purpose pur in purp.getSubComponents())
             {
                 this.fetchSubCategories(pur, "- " + prefix);
             }
