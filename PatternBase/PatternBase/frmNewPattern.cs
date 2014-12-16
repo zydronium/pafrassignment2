@@ -17,6 +17,8 @@ namespace PatternBase
         private bool exitform = false;
         private FolderBrowserDialog folderBrowserDialog;
         private OpenFileDialog openFileDialog;
+        public bool editScreen = false;
+        public Pattern editPattern;
 
         public FrmNewPattern()
         {

@@ -172,7 +172,8 @@ namespace PatternBase
             KeyValue item = (KeyValue)lbEditPurpose.SelectedItem;
             Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
             Program.frmNewPurpose = new FrmNewPurpose();
-            Program.frmNewPurpose.Text = "Edit Purprose";
+            Program.frmNewPurpose.editScreen = true;
+            Program.frmNewPurpose.editPurpose = purpose;
             Program.frmNewPurpose.Show();
         }
 
@@ -181,7 +182,8 @@ namespace PatternBase
             KeyValue item = (KeyValue)lbEditScope.SelectedItem;
             Scope scope = Program.database.getScopeById(Convert.ToInt32(item.key));
             Program.frmNewScope = new FrmNewScope();
-            Program.frmNewScope.Text = "Edit Scope";
+            Program.frmNewScope.editScreen = true;
+            Program.frmNewScope.editScope = scope;
             Program.frmNewScope.Show();
         }
 
@@ -190,7 +192,8 @@ namespace PatternBase
             KeyValue item = (KeyValue)lbEditPattern.SelectedItem;
             Pattern pattern = Program.database.getPatternById(Convert.ToInt32(item.key));
             Program.frmNewPattern = new FrmNewPattern();
-            Program.frmNewPattern.Text = "Edit Pattern";
+            Program.frmNewPattern.editScreen = true;
+            Program.frmNewPattern.editPattern = pattern;
             Program.frmNewPattern.Show();
         }
     }

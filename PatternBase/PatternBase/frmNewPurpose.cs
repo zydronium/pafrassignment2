@@ -16,6 +16,8 @@ namespace PatternBase
     public partial class FrmNewPurpose : Form
     {
         private bool exitform = false;
+        public bool editScreen = false;
+        public Purpose editPurpose;
 
         public FrmNewPurpose()
         {

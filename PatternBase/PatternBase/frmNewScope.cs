@@ -15,6 +15,8 @@ namespace PatternBase
     public partial class FrmNewScope : Form
     {
         private bool exitform = false;
+        public bool editScreen = false;
+        public Scope editScope;
 
         public FrmNewScope()
         {
