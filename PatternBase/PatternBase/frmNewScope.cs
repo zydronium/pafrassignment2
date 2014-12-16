@@ -115,6 +115,6 @@ namespace PatternBase
                 }
             }
         }
-        public override void Updater() { }
+        new public void Updater() { }
     }
 }

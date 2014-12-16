@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace PatternBase
 {
-    public abstract class ObserverForm : Form
+    public class ObserverForm : Form
     {
          protected ObservableForm receiver;
-         public abstract void Updater();
+         public void Updater() { }
     }
 }
