@@ -54,6 +54,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lbProblems = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.lbPattern = new System.Windows.Forms.ListBox();
+            this.Pattern = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDevider
@@ -70,9 +72,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(25, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Search";
+            this.label1.Text = "Edit";
             // 
             // label2
             // 
@@ -254,21 +256,23 @@
             this.lbPurpose.FormattingEnabled = true;
             this.lbPurpose.Location = new System.Drawing.Point(16, 46);
             this.lbPurpose.Name = "lbPurpose";
-            this.lbPurpose.Size = new System.Drawing.Size(204, 173);
+            this.lbPurpose.Size = new System.Drawing.Size(139, 173);
             this.lbPurpose.TabIndex = 25;
+            this.lbPurpose.SelectedIndexChanged += new System.EventHandler(this.lbPurpose_SelectedIndexChanged);
             // 
             // lbScope
             // 
             this.lbScope.FormattingEnabled = true;
-            this.lbScope.Location = new System.Drawing.Point(226, 46);
+            this.lbScope.Location = new System.Drawing.Point(161, 46);
             this.lbScope.Name = "lbScope";
-            this.lbScope.Size = new System.Drawing.Size(204, 173);
+            this.lbScope.Size = new System.Drawing.Size(131, 173);
             this.lbScope.TabIndex = 27;
+            this.lbScope.SelectedIndexChanged += new System.EventHandler(this.lbScope_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(223, 29);
+            this.label9.Location = new System.Drawing.Point(158, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 13);
             this.label9.TabIndex = 26;
@@ -291,11 +295,31 @@
             this.label10.TabIndex = 30;
             this.label10.Text = "Problem";
             // 
+            // lbPattern
+            // 
+            this.lbPattern.FormattingEnabled = true;
+            this.lbPattern.Location = new System.Drawing.Point(299, 46);
+            this.lbPattern.Name = "lbPattern";
+            this.lbPattern.Size = new System.Drawing.Size(131, 173);
+            this.lbPattern.TabIndex = 32;
+            this.lbPattern.SelectedIndexChanged += new System.EventHandler(this.lbPattern_SelectedIndexChanged);
+            // 
+            // Pattern
+            // 
+            this.Pattern.AutoSize = true;
+            this.Pattern.Location = new System.Drawing.Point(296, 29);
+            this.Pattern.Name = "Pattern";
+            this.Pattern.Size = new System.Drawing.Size(41, 13);
+            this.Pattern.TabIndex = 31;
+            this.Pattern.Text = "Pattern";
+            // 
             // FrmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 576);
+            this.Controls.Add(this.lbPattern);
+            this.Controls.Add(this.Pattern);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lbProblems);
             this.Controls.Add(this.lbScope);
@@ -358,5 +382,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox lbProblems;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox lbPattern;
+        private System.Windows.Forms.Label Pattern;
     }
 }

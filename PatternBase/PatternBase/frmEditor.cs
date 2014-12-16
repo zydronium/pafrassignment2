@@ -126,6 +126,16 @@ namespace PatternBase
             lbPurpose.DisplayMember = "value";
             lbPurpose.ValueMember = "key";
 
+            foreach (Pattern pur in Program.database.getPatternList())
+            {
+                KeyValue keyValue = new KeyValue();
+                keyValue.key = pur.getId().ToString();
+                keyValue.value = pur.getName();
+                lbPattern.Items.Add(keyValue);
+            }
+            lbPattern.DisplayMember = "value";
+            lbPattern.ValueMember = "key";
+
         }
 
         private void fetchSubCategories(Purpose purp, string prefix)
@@ -156,6 +166,30 @@ namespace PatternBase
                     this.fetchSubCategories((Scope)sco, "- " + prefix);
                 }
             }
+        }
+
+        private void lbPurpose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)lbPurpose.SelectedItem;
+            Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
+            Program.frmNewPurpose = new FrmNewPurpose();
+            Program.frmNewPurpose.Show();
+        }
+
+        private void lbScope_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)lbPurpose.SelectedItem;
+            Scope scope = Program.database.getScopeById(Convert.ToInt32(item.key));
+            Program.frmNewScope = new FrmNewScope();
+            Program.frmNewScope.Show();
+        }
+
+        private void lbPattern_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)lbPurpose.SelectedItem;
+            Pattern pattern = Program.database.getPatternById(Convert.ToInt32(item.key));
+            Program.frmNewPattern = new FrmNewPattern();
+            Program.frmNewPattern.Show();
         }
     }
 }
