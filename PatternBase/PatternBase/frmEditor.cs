@@ -100,7 +100,7 @@ namespace PatternBase
 
         private void btnNewPattern_Click(object sender, EventArgs e)
         {
-            Program.frmNewPattern = new FrmNewPattern();
+            Program.frmNewPattern = new FrmNewPattern(this);
             this.Attach(Program.frmNewPurpose);
             Program.frmNewPattern.Show();
         }
@@ -208,7 +208,7 @@ namespace PatternBase
         {
             KeyValue item = (KeyValue)lbEditPattern.SelectedItem;
             Pattern pattern = Program.database.getPatternById(Convert.ToInt32(item.key));
-            Program.frmNewPattern = new FrmNewPattern();
+            Program.frmNewPattern = new FrmNewPattern(this);
             Program.frmNewPattern.editScreen = true;
             Program.frmNewPattern.editPattern = pattern;
             Program.frmNewPattern.Show();

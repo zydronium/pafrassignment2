@@ -29,7 +29,7 @@ namespace PatternBase
             frmEditor = new FrmEditor();
             frmNewPurpose = new FrmNewPurpose(frmEditor);
             frmNewScope = new FrmNewScope(frmEditor);
-            frmNewPattern = new FrmNewPattern();
+            frmNewPattern = new FrmNewPattern(frmEditor);
 
             Application.Run(frmStart);
         }

@@ -20,9 +20,10 @@ namespace PatternBase
         public bool editScreen = false;
         public Pattern editPattern;
 
-        public FrmNewPattern()
+        public FrmNewPattern(ObservableForm reference)
         {
             InitializeComponent();
+            this.receiver = reference;
             this.FormClosing += this.FrmNewPattern_FormClosing;
         }
 
@@ -104,6 +105,7 @@ namespace PatternBase
                 parentScope.AddSubComponent(patternId);
             }
 
+            this.receiver.Updater();
             exitform = true;
             this.Close();
         }
