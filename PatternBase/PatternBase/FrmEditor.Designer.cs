@@ -53,7 +53,7 @@
             this.lbScope = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lbProblems = new System.Windows.Forms.ListBox();
-            this.lbSolutions = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDevider
@@ -279,23 +279,24 @@
             this.lbProblems.FormattingEnabled = true;
             this.lbProblems.Location = new System.Drawing.Point(16, 244);
             this.lbProblems.Name = "lbProblems";
-            this.lbProblems.Size = new System.Drawing.Size(204, 95);
+            this.lbProblems.Size = new System.Drawing.Size(414, 199);
             this.lbProblems.TabIndex = 28;
             // 
-            // lbSolutions
+            // label10
             // 
-            this.lbSolutions.FormattingEnabled = true;
-            this.lbSolutions.Location = new System.Drawing.Point(226, 244);
-            this.lbSolutions.Name = "lbSolutions";
-            this.lbSolutions.Size = new System.Drawing.Size(204, 95);
-            this.lbSolutions.TabIndex = 29;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 228);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "Problem";
             // 
             // FrmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 576);
-            this.Controls.Add(this.lbSolutions);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.lbProblems);
             this.Controls.Add(this.lbScope);
             this.Controls.Add(this.label9);
@@ -356,6 +357,6 @@
         private System.Windows.Forms.ListBox lbScope;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox lbProblems;
-        private System.Windows.Forms.ListBox lbSolutions;
+        private System.Windows.Forms.Label label10;
     }
 }
