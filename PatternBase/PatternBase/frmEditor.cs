@@ -214,5 +214,24 @@ namespace PatternBase
             Program.frmNewPattern.Show();
 
         }
+
+        private void lbPurpose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)lbPurpose.SelectedItem;
+            Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
+            List<Pattern> plist = new List<Pattern>();
+            foreach (ComponentModel compMod in purpose.getSubComponents())
+            {
+                if (compMod.GetType() == typeof(Pattern))
+                {
+                   // this.fetchSubCategories((Purpose)pur, "- " + prefix, lbox);
+                    plist.Add(Program.database.getPatternById(compMod.getId()));
+                }
+            }
+            foreach (Pattern pattern in plist)
+            {
+                lbProblems.Items.Add(pattern.getProblem());
+            }
+        }
     }
 }

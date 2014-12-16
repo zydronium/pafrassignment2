@@ -133,6 +133,7 @@ namespace PatternBase
                 this.Text = "Edit Pattern";
                 txtName.Text = editPattern.getName();
                 txtDescription.Text = editPattern.getDescription();
+                txtProblem.Text = editPattern.getProblem();
             }
             else
             {

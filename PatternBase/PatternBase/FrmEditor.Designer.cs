@@ -132,6 +132,7 @@
             this.lbPurpose.Name = "lbPurpose";
             this.lbPurpose.Size = new System.Drawing.Size(205, 173);
             this.lbPurpose.TabIndex = 25;
+            this.lbPurpose.SelectedIndexChanged += new System.EventHandler(this.lbPurpose_SelectedIndexChanged);
             // 
             // lbScope
             // 
