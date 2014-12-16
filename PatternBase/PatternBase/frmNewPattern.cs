@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PatternBase
 {
-    public partial class FrmNewPattern : Form
+    public partial class FrmNewPattern : ObserverForm
     {
         private bool exitform = false;
         private FolderBrowserDialog folderBrowserDialog;
