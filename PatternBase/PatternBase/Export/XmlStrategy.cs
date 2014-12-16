@@ -25,6 +25,7 @@ namespace PatternBase.Export
                 new System.Xml.Serialization.XmlSerializer(typeof(Database));
             System.IO.StreamReader file = new System.IO.StreamReader(location);
             Database database = (Database)reader.Deserialize(file);
+            file.Close();
 
             return database;
         }
