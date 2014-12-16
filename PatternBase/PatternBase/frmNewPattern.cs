@@ -49,6 +49,9 @@ namespace PatternBase
             pattern.setName(txtName.Text);
             pattern.setDescription(txtDescription.Text);
             pattern.setId(Program.database.getId());
+            pattern.setProblem(txtProblem.Text);
+            pattern.setConsequence(txtConsequence.Text);
+            pattern.setSolution(txtSolution.Text);
             ComponentId componentId = new ComponentId();
             componentId.setId(pattern.getId());
 
