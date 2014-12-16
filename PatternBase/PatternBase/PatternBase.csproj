@@ -78,6 +78,8 @@
       <DependentUpon>FrmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ComponentModel.cs" />
+    <Compile Include="Model\ObserverBase.cs" />
+    <Compile Include="Model\ObservableBase.cs" />
     <Compile Include="Model\ComponentId.cs" />
     <Compile Include="Model\Composite.cs" />
     <Compile Include="Model\Database.cs" />
