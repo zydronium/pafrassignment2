@@ -96,6 +96,11 @@ namespace PatternBase.Model
             }
         }
 
+        public void cleanPurpose()
+        {
+            hasPurpose = new List<Ids>();
+        }
+
         public List<Scope> getScopeList()
         {
             List<Scope> list = new List<Scope>();
@@ -144,6 +149,11 @@ namespace PatternBase.Model
                     hasScope.Remove(ids);
                 }
             }
+        }
+
+        public void cleanScope()
+        {
+            hasScope = new List<Ids>();
         }
     }
 
