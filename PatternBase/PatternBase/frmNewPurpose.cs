@@ -72,6 +72,7 @@ namespace PatternBase
             }
             else
             {
+                btnDelete.Visible = false;
                 Purpose purpose = new Purpose();
                 purpose.setName(txtName.Text);
                 purpose.setDescription(txtDescription.Text);
@@ -127,6 +128,11 @@ namespace PatternBase
             }
         }
         new public void Updater() { }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
         
 
     }

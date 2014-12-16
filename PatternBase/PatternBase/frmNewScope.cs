@@ -62,6 +62,7 @@ namespace PatternBase
             }
             else
             {
+                btnDelete.Visible = false;
                 Scope scope = new Scope();
                 scope.setName(txtName.Text);
                 scope.setDescription(txtDescription.Text);
@@ -116,5 +117,10 @@ namespace PatternBase
             }
         }
         new public void Updater() { }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

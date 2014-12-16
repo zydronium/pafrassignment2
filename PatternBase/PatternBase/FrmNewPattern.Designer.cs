@@ -46,6 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSolution = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -210,11 +211,22 @@
             this.label7.TabIndex = 34;
             this.label7.Text = "Solution";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(174, 623);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 36;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FrmNewPattern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 657);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtSolution);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtConsequence);
@@ -261,5 +273,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSolution;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

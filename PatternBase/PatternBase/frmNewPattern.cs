@@ -132,6 +132,10 @@ namespace PatternBase
                 txtName.Text = editPattern.getName();
                 txtDescription.Text = editPattern.getDescription();
             }
+            else
+            {
+                btnDelete.Visible = false;
+            }
         }
 
         private void fetchSubCategories(Scope sco, string prefix)
@@ -163,6 +167,11 @@ namespace PatternBase
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
 
         }
