@@ -8,8 +8,6 @@ namespace PatternBase.Model
 {
     public class Database
     {
-        public List<Scope> scopes = new List<Scope>();
-        public List<Purpose> purposes = new List<Purpose>();
         public List<Pattern> patterns = new List<Pattern>();
 
         public Scope headScope;
@@ -22,30 +20,12 @@ namespace PatternBase.Model
             return id;
         }
 
-        public List<Scope> getScopeList()
-        {
-            return scopes;
-        }
-
-        public void setScopeList(List<Scope> sclist)
-        {
-            scopes = sclist;
-        }
-
-        public Scope getScope(string sName)
-        {
-            foreach (Scope scope in scopes)
-            {
-                if (scope.getName() == sName)
-                {
-                    return scope;
-                }
-            }
-            return null;
-        }
-
         public Scope getScopeById(int id)
         {
+            List<Scope> scopes = new List<Scope>();
+
+            scopes = fetchSubCategories(headScope, scopes);
+
             foreach (Scope scope in scopes)
             {
                 if (scope.getId() == id)
@@ -56,40 +36,12 @@ namespace PatternBase.Model
             return null;
         }
 
-        public void addScope(Scope scope)
-        {
-            scopes.Add(scope);
-        }
-
-        public void removeScope(Scope scope)
-        {
-            scopes.Remove(scope);
-        }
-
-        public List<Purpose> getPurposeList()
-        {
-            return purposes;
-        }
-
-        public void setPurposeList(List<Purpose> purlist)
-        {
-            purposes = purlist;
-        }
-
-        public Purpose getPurpose(string pName)
-        {
-            foreach (Purpose purpose in purposes)
-            {
-                if (purpose.getName() == pName)
-                {
-                    return purpose;
-                }
-            }
-            return null;
-        }
-
         public Purpose getPurposeById(int id)
         {
+            List<Purpose> purposes = new List<Purpose>();
+
+            purposes = fetchSubCategories(headPurpose, purposes);
+
             foreach (Purpose purpose in purposes)
             {
                 if (purpose.getId() == id)
@@ -100,14 +52,30 @@ namespace PatternBase.Model
             return null;
         }
 
-        public void addPurpose(Purpose purpose)
+        private List<Scope> fetchSubCategories(Scope sco, List<Scope> values)
         {
-            purposes.Add(purpose);
+            values.Add(sco);
+            foreach (ComponentModel sc in sco.getSubComponents())
+            {
+                if (sc.GetType() == typeof(Scope))
+                {
+                    values = this.fetchSubCategories((Scope)sc, values);
+                }
+            }
+            return values;
         }
 
-        public void removePurpose(Purpose purpose)
+        private List<Purpose> fetchSubCategories(Purpose purp, List<Purpose> values)
         {
-            purposes.Remove(purpose);
+            values.Add(purp);
+            foreach (ComponentModel pur in purp.getSubComponents())
+            {
+                if (pur.GetType() == typeof(Purpose))
+                {
+                    values = this.fetchSubCategories((Purpose)pur, values);
+                }
+            }
+            return values;
         }
 
         public List<Pattern> getPatternList()

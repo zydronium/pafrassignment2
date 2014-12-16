@@ -61,7 +61,6 @@ namespace PatternBase
             KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
             Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
             parent.AddSubComponent(purpose);
-            Program.database.addPurpose(purpose);
             exitform = true;
             this.Close();
         }

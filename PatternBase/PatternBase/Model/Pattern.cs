@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    public class Pattern : Component
+    public class Pattern : ComponentModel
     {
         public string problem;
         public string solution;

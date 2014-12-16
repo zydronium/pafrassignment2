@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    public class ComponentId : Component
+    public class ComponentId : ComponentModel
     {
 
     }

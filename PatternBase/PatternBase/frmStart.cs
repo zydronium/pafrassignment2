@@ -51,9 +51,6 @@ namespace PatternBase
             Program.database.setHeadScope(scope);
             Program.database.setHeadPurpose(purpose);
 
-            Program.database.addPurpose(purpose);
-            Program.database.addScope(scope);
-
             Program.frmEditor.Show();
             Program.frmStart.Hide();
         }

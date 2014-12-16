@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PatternBase.Model
 {
-    abstract public class Component
+    abstract public class ComponentModel
     {
         public string name;
         public string description;
