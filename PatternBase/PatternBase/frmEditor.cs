@@ -49,16 +49,6 @@ namespace PatternBase
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSaveToFile_Click(object sender, EventArgs e)
         {
             // If a file is not opened, then set the initial directory to the 
@@ -120,14 +110,34 @@ namespace PatternBase
             this.lbPurpose.Items.Clear();
             this.lbScope.Items.Clear();
             Scope scope = Program.database.getHeadScope();
-            fetchSubCategories(scope, "");
+            fetchSubCategories(scope, "", lbScope);
             lbScope.DisplayMember = "value";
             lbScope.ValueMember = "key";
 
             Purpose purpose = Program.database.getHeadPurpose();
-            fetchSubCategories(purpose, "");
+            fetchSubCategories(purpose, "", lbPurpose);
             lbPurpose.DisplayMember = "value";
             lbPurpose.ValueMember = "key";
+
+            Scope editScope = Program.database.getHeadScope();
+            fetchSubCategories(scope, "", lbEditScope);
+            lbEditScope.DisplayMember = "value";
+            lbEditScope.ValueMember = "key";
+
+            Purpose editPurpose = Program.database.getHeadPurpose();
+            fetchSubCategories(purpose, "", lbEditPurpose);
+            lbEditPurpose.DisplayMember = "value";
+            lbEditPurpose.ValueMember = "key";
+
+            foreach (Pattern pur in Program.database.getPatternList())
+            {
+                KeyValue keyValue = new KeyValue();
+                keyValue.key = pur.getId().ToString();
+                keyValue.value = pur.getName();
+                lbEditPattern.Items.Add(keyValue);
+            }
+            lbEditPattern.DisplayMember = "value";
+            lbEditPattern.ValueMember = "key";
         }
 
         private void FrmEditor_Load(object sender, EventArgs e)
@@ -136,39 +146,70 @@ namespace PatternBase
             this.loadElements();
         }
 
-        private void fetchSubCategories(Purpose purp, string prefix)
+        private void fetchSubCategories(Purpose purp, string prefix, ListBox lbox)
         {
             KeyValue keyValue = new KeyValue();
             keyValue.key = purp.getId().ToString();
             keyValue.value = prefix + purp.getName();
-            lbPurpose.Items.Add(keyValue);
+            lbox.Items.Add(keyValue);
             foreach (ComponentModel pur in purp.getSubComponents())
             {
                 if (pur.GetType() == typeof(Purpose))
                 {
-                    this.fetchSubCategories((Purpose)pur, "- " + prefix);
+                    this.fetchSubCategories((Purpose)pur, "- " + prefix, lbox);
                 }
             }
         }
 
-        private void fetchSubCategories(Scope scope, string prefix)
+        private void fetchSubCategories(Scope scope, string prefix, ListBox lbox)
         {
             KeyValue keyValue = new KeyValue();
             keyValue.key = scope.getId().ToString();
             keyValue.value = prefix + scope.getName();
-            lbScope.Items.Add(keyValue);
+            lbox.Items.Add(keyValue);
             foreach (ComponentModel sco in scope.getSubComponents())
             {
                 if (sco.GetType() == typeof(Scope))
                 {
-                    this.fetchSubCategories((Scope)sco, "- " + prefix);
+                    this.fetchSubCategories((Scope)sco, "- " + prefix, lbox);
                 }
             }
         }
 
+
         public override void Updater() 
         {
             this.loadElements();
+        }
+        private void lbEditPurpose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)lbEditPurpose.SelectedItem;
+            Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
+            Program.frmNewPurpose = new FrmNewPurpose(this);
+            Program.frmNewPurpose.editScreen = true;
+            Program.frmNewPurpose.editPurpose = purpose;
+            Program.frmNewPurpose.Show();
+        }
+
+        private void lbEditScope_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)lbEditScope.SelectedItem;
+            Scope scope = Program.database.getScopeById(Convert.ToInt32(item.key));
+            Program.frmNewScope = new FrmNewScope(this);
+            Program.frmNewScope.editScreen = true;
+            Program.frmNewScope.editScope = scope;
+            Program.frmNewScope.Show();
+        }
+
+        private void lbEditPattern_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)lbEditPattern.SelectedItem;
+            Pattern pattern = Program.database.getPatternById(Convert.ToInt32(item.key));
+            Program.frmNewPattern = new FrmNewPattern();
+            Program.frmNewPattern.editScreen = true;
+            Program.frmNewPattern.editPattern = pattern;
+            Program.frmNewPattern.Show();
+
         }
     }
 }

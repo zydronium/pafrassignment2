@@ -15,6 +15,8 @@ namespace PatternBase
     public partial class FrmNewScope : ObserverForm
     {
         private bool exitform = false;
+        public bool editScreen = false;
+        public Scope editScope;
 
         public FrmNewScope(ObservableForm reference)
         {
@@ -28,7 +30,16 @@ namespace PatternBase
             if (!exitform)
             {
                 // Display a MsgBox asking the user to save changes or abort. 
-                if (MessageBox.Show("Cancel creating new scope?", "PatternBase",
+                string message = "";
+                if (editScreen)
+                {
+                    message = "Cancel editing scope?";
+                }
+                else
+                {
+                    message = "Cancel creating new scope?";
+                }
+                if (MessageBox.Show(message, "PatternBase",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     exitform = true;
@@ -44,14 +55,23 @@ namespace PatternBase
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Scope scope = new Scope();
-            scope.setName(txtName.Text);
-            scope.setDescription(txtDescription.Text);
-            scope.setId(Program.database.getId());
+            if (editScreen)
+            {
+                editScope.setName(txtName.Text);
+                editScope.setDescription(txtDescription.Text);
+            }
+            else
+            {
+                Scope scope = new Scope();
+                scope.setName(txtName.Text);
+                scope.setDescription(txtDescription.Text);
+                scope.setId(Program.database.getId());
 
-            KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
-            Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
-            parent.AddSubComponent(scope);
+                KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
+                Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
+                parent.AddSubComponent(scope);
+            }
+
             this.receiver.Updater();
             exitform = true;
             this.Close();
@@ -69,6 +89,16 @@ namespace PatternBase
             cbbParrent.DisplayMember = "value";
             cbbParrent.ValueMember = "key";
             cbbParrent.SelectedIndex = 0;
+
+            if (editScreen)
+            {
+                btnAdd.Text = "Edit";
+                this.Text = "Edit Scope";
+                txtName.Text = editScope.getName();
+                txtDescription.Text = editScope.getDescription();
+                lblParent.Visible = false;
+                cbbParrent.Visible = false;
+            }
         }
 
         private void fetchSubCategories(Scope sco, string prefix)
