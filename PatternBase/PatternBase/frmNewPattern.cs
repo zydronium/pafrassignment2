@@ -97,7 +97,7 @@ namespace PatternBase
                 parentPurpose.AddSubComponent(patternId);
             }
 
-            foreach (KeyValue parentItemScope in lbParrentPurpose.SelectedItems)
+            foreach (KeyValue parentItemScope in lbParrentScope.SelectedItems)
             {
                 Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
                 pattern.addScope(parentScope);
