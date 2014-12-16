@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace PatternBase
 {
-    public partial class FrmEditor : Form
+    public partial class FrmEditor : ObservableForm
     {
         private bool exitform = false;
         private FolderBrowserDialog folderBrowserDialog;
@@ -96,26 +96,29 @@ namespace PatternBase
 
         private void bbtnNewPurpose_Click(object sender, EventArgs e)
         {
-            Program.frmNewPurpose = new FrmNewPurpose();
+            Program.frmNewPurpose = new FrmNewPurpose(this);
+            this.Attach(Program.frmNewPurpose);
             Program.frmNewPurpose.Show();
         }
 
         private void btnNewScope_Click(object sender, EventArgs e)
         {
-            Program.frmNewScope = new FrmNewScope();
+            Program.frmNewScope = new FrmNewScope(this);
+            this.Attach(Program.frmNewPurpose);
             Program.frmNewScope.Show();
         }
 
         private void btnNewPattern_Click(object sender, EventArgs e)
         {
             Program.frmNewPattern = new FrmNewPattern();
+            this.Attach(Program.frmNewPurpose);
             Program.frmNewPattern.Show();
         }
 
-        private void FrmEditor_Load(object sender, EventArgs e)
+        public void loadElements()
         {
-            this.AutoSize = true;
-
+            this.lbPurpose.Items.Clear();
+            this.lbScope.Items.Clear();
             Scope scope = Program.database.getHeadScope();
             fetchSubCategories(scope, "");
             lbScope.DisplayMember = "value";
@@ -125,6 +128,12 @@ namespace PatternBase
             fetchSubCategories(purpose, "");
             lbPurpose.DisplayMember = "value";
             lbPurpose.ValueMember = "key";
+        }
+
+        private void FrmEditor_Load(object sender, EventArgs e)
+        {
+            this.AutoSize = true;
+            this.loadElements();
         }
 
         private void fetchSubCategories(Purpose purp, string prefix)
@@ -155,6 +164,11 @@ namespace PatternBase
                     this.fetchSubCategories((Scope)sco, "- " + prefix);
                 }
             }
+        }
+
+        public override void Updater() 
+        {
+            this.loadElements();
         }
     }
 }

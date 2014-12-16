@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObserverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObservableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Export\ExportContext.cs" />
     <Compile Include="Export\IExport.cs" />
     <Compile Include="Export\XmlStrategy.cs" />

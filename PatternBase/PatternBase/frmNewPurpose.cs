@@ -13,13 +13,14 @@ using System.Windows.Forms;
 
 namespace PatternBase
 {
-    public partial class FrmNewPurpose : Form
+    public partial class FrmNewPurpose : ObserverForm
     {
         private bool exitform = false;
 
-        public FrmNewPurpose()
+        public FrmNewPurpose(ObservableForm reference)
         {
             InitializeComponent();
+            this.receiver = reference;
             this.FormClosing += this.FrmNewPurpose_FormClosing;
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckKeys);
         }
@@ -61,6 +62,7 @@ namespace PatternBase
             KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
             Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
             parent.AddSubComponent(purpose);
+            this.receiver.Updater();
             exitform = true;
             this.Close();
         }
@@ -94,5 +96,8 @@ namespace PatternBase
                 }
             }
         }
+        public override void Updater() { }
+        
+
     }
 }

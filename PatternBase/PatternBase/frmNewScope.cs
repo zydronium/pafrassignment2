@@ -12,13 +12,14 @@ using System.Windows.Forms;
 
 namespace PatternBase
 {
-    public partial class FrmNewScope : Form
+    public partial class FrmNewScope : ObserverForm
     {
         private bool exitform = false;
 
-        public FrmNewScope()
+        public FrmNewScope(ObservableForm reference)
         {
             InitializeComponent();
+            this.receiver = reference;
             this.FormClosing += this.FrmNewScope_FormClosing;
         }
 
@@ -51,6 +52,7 @@ namespace PatternBase
             KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
             Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
             parent.AddSubComponent(scope);
+            this.receiver.Updater();
             exitform = true;
             this.Close();
         }
@@ -83,5 +85,6 @@ namespace PatternBase
                 }
             }
         }
+        public override void Updater() { }
     }
 }

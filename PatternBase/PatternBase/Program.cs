@@ -27,8 +27,8 @@ namespace PatternBase
 
             frmStart = new FrmStart();
             frmEditor = new FrmEditor();
-            frmNewPurpose = new FrmNewPurpose();
-            frmNewScope = new FrmNewScope();
+            frmNewPurpose = new FrmNewPurpose(frmEditor);
+            frmNewScope = new FrmNewScope(frmEditor);
             frmNewPattern = new FrmNewPattern();
 
             Application.Run(frmStart);
