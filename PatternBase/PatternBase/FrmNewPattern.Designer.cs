@@ -125,6 +125,7 @@
             this.lbParrentPurpose.FormattingEnabled = true;
             this.lbParrentPurpose.Location = new System.Drawing.Point(12, 441);
             this.lbParrentPurpose.Name = "lbParrentPurpose";
+            this.lbParrentPurpose.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbParrentPurpose.Size = new System.Drawing.Size(259, 30);
             this.lbParrentPurpose.TabIndex = 26;
             // 
@@ -133,6 +134,7 @@
             this.lbParrentScope.FormattingEnabled = true;
             this.lbParrentScope.Location = new System.Drawing.Point(12, 490);
             this.lbParrentScope.Name = "lbParrentScope";
+            this.lbParrentScope.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbParrentScope.Size = new System.Drawing.Size(259, 30);
             this.lbParrentScope.TabIndex = 27;
             // 
