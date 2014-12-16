@@ -109,6 +109,9 @@ namespace PatternBase
         {
             this.lbPurpose.Items.Clear();
             this.lbScope.Items.Clear();
+            this.lbEditScope.Items.Clear();
+            this.lbEditPattern.Items.Clear();
+            this.lbEditPurpose.Items.Clear();
             Scope scope = Program.database.getHeadScope();
             fetchSubCategories(scope, "", lbScope);
             lbScope.DisplayMember = "value";
