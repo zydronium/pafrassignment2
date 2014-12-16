@@ -31,7 +31,16 @@ namespace PatternBase
             if (!exitform)
             {
                 // Display a MsgBox asking the user to save changes or abort. 
-                if (MessageBox.Show("Cancel creating new pattern?", "PatternBase",
+                string message = "";
+                if (editScreen)
+                {
+                    message = "Cancel editing patterm?";
+                }
+                else
+                {
+                    message = "Cancel creating new pattern?";
+                }
+                if (MessageBox.Show(message, "PatternBase",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     exitform = true;
@@ -87,6 +96,14 @@ namespace PatternBase
             fetchSubCategories(purpose, "");
             lbParrentPurpose.DisplayMember = "value";
             lbParrentPurpose.ValueMember = "key";
+
+            if (editScreen)
+            {
+                btnAdd.Text = "Edit";
+                this.Text = "Edit Pattern";
+                txtName.Text = editPattern.getName();
+                txtDescription.Text = editPattern.getDescription();
+            }
         }
 
         private void fetchSubCategories(Scope sco, string prefix)

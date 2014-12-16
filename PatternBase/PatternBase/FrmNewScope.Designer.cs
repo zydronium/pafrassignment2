@@ -35,7 +35,7 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbbParrent = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblParent = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -100,14 +100,14 @@
             this.cbbParrent.Size = new System.Drawing.Size(259, 21);
             this.cbbParrent.TabIndex = 18;
             // 
-            // label1
+            // lblParent
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Parent";
+            this.lblParent.AutoSize = true;
+            this.lblParent.Location = new System.Drawing.Point(12, 141);
+            this.lblParent.Name = "lblParent";
+            this.lblParent.Size = new System.Drawing.Size(38, 13);
+            this.lblParent.TabIndex = 17;
+            this.lblParent.Text = "Parent";
             // 
             // FrmNewScope
             // 
@@ -115,7 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.cbbParrent);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblParent);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtName);
@@ -139,6 +139,6 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbbParrent;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblParent;
     }
 }

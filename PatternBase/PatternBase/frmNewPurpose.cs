@@ -31,7 +31,16 @@ namespace PatternBase
             if (!exitform)
             {
                 // Display a MsgBox asking the user to save changes or abort. 
-                if (MessageBox.Show("Cancel creating new purpose?", "PatternBase",
+                string message = "";
+                if (editScreen)
+                {
+                    message = "Cancel editing purpose?";
+                }
+                else
+                {
+                    message = "Cancel creating new purpose?";
+                }
+                if (MessageBox.Show(message, "PatternBase",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     exitform = true;
@@ -55,14 +64,23 @@ namespace PatternBase
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Purpose purpose = new Purpose();
-            purpose.setName(txtName.Text);
-            purpose.setDescription(txtDescription.Text);
-            purpose.setId(Program.database.getId());
+            if (editScreen)
+            {
+                editPurpose.setName(txtName.Text);
+                editPurpose.setDescription(txtDescription.Text);
+            }
+            else
+            {
+                Purpose purpose = new Purpose();
+                purpose.setName(txtName.Text);
+                purpose.setDescription(txtDescription.Text);
+                purpose.setId(Program.database.getId());
 
-            KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
-            Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
-            parent.AddSubComponent(purpose);
+                KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
+                Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
+                parent.AddSubComponent(purpose);
+            }
+
             exitform = true;
             this.Close();
         }
@@ -80,6 +98,16 @@ namespace PatternBase
             cbbParrent.ValueMember = "key";
             cbbParrent.SelectedIndex = 0;
             this.ActiveControl = this.txtName;
+
+            if (editScreen)
+            {
+                btnAdd.Text = "Edit";
+                this.Text = "Edit Purpose";
+                txtName.Text = editPurpose.getName();
+                txtDescription.Text = editPurpose.getDescription();
+                lblParent.Visible = false;
+                cbbParrent.Visible = false;
+            }
         }
 
         private void fetchSubCategories(Purpose purp, string prefix)
