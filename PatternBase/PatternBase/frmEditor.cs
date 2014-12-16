@@ -134,9 +134,12 @@ namespace PatternBase
             keyValue.key = purp.getId().ToString();
             keyValue.value = prefix + purp.getName();
             lbPurpose.Items.Add(keyValue);
-            foreach (Purpose pur in purp.getSubComponents())
+            foreach (ComponentModel pur in purp.getSubComponents())
             {
-                this.fetchSubCategories(pur, "- " + prefix);
+                if (pur.GetType() == typeof(Purpose))
+                {
+                    this.fetchSubCategories((Purpose)pur, "- " + prefix);
+                }
             }
         }
 
@@ -146,9 +149,12 @@ namespace PatternBase
             keyValue.key = scope.getId().ToString();
             keyValue.value = prefix + scope.getName();
             lbScope.Items.Add(keyValue);
-            foreach (Scope pur in scope.getSubComponents())
+            foreach (ComponentModel sco in scope.getSubComponents())
             {
-                this.fetchSubCategories(pur, "- " + prefix);
+                if (sco.GetType() == typeof(Scope))
+                {
+                    this.fetchSubCategories((Scope)sco, "- " + prefix);
+                }
             }
         }
     }
