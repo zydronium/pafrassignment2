@@ -52,17 +52,17 @@ namespace PatternBase
             pattern.setProblem(txtProblem.Text);
             pattern.setConsequence(txtConsequence.Text);
             pattern.setSolution(txtSolution.Text);
-            ComponentId componentId = new ComponentId();
-            componentId.setId(pattern.getId());
+            Pattern patternId = new Pattern();
+            patternId.setId(pattern.getId());
 
             KeyValue parentItemPurpose = (KeyValue)lbParrentPurpose.SelectedItem;
             Purpose parentPurpose = Program.database.getPurposeById(Convert.ToInt32(parentItemPurpose.key));
             pattern.addPurpose(parentPurpose);
-            parentPurpose.AddSubComponent(componentId);
+            parentPurpose.AddSubComponent(patternId);
             KeyValue parentItemScope = (KeyValue)lbParrentScope.SelectedItem;
             Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
             pattern.addScope(parentScope);
-            parentScope.AddSubComponent(componentId);
+            parentScope.AddSubComponent(patternId);
 
             Program.database.addPattern(pattern);
             exitform = true;
