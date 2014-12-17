@@ -150,6 +150,32 @@ namespace PatternBase
                 txtDescription.Text = editPattern.getDescription();
                 txtProblem.Text = editPattern.getProblem();
                 pbImage.Image = editPattern.getImage();
+
+                foreach (Scope scopeSelect in editPattern.getScopeList())
+                {
+                    for (int i = 0; i < lbParrentScope.Items.Count; i++)
+                    {
+                        KeyValue keyValue = (KeyValue)lbParrentScope.Items[i];
+                        if (keyValue.key == scopeSelect.getId().ToString())
+                        {
+                            lbParrentScope.SetSelected(i, true);
+
+                        }
+                    }
+                }
+
+                foreach (Purpose purposeSelect in editPattern.getPurposeList())
+                {
+                    for (int i = 0; i < lbParrentPurpose.Items.Count; i++)
+                    {
+                        KeyValue keyValue = (KeyValue)lbParrentPurpose.Items[i];
+                        if (keyValue.key == purposeSelect.getId().ToString())
+                        {
+                            lbParrentPurpose.SetSelected(i, true);
+
+                        }
+                    }
+                }
             }
             else
             {
