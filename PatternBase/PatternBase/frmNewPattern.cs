@@ -17,9 +17,9 @@ namespace PatternBase
     public partial class FrmNewPattern : ObserverForm
     {
         private bool exitform = false;
-        private FolderBrowserDialog folderBrowserDialog;
         private OpenFileDialog openFileDialog;
         public bool editScreen = false;
+        public bool showScreen = false;
         public Pattern editPattern;
 
         public FrmNewPattern(ObservableForm reference)
