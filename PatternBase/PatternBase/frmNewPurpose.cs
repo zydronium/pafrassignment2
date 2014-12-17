@@ -15,7 +15,6 @@ namespace PatternBase
 {
     public partial class FrmNewPurpose : ObserverForm
     {
-        private bool exitform = false;
         public bool editScreen = false;
         public Purpose editPurpose;
 

@@ -9,7 +9,14 @@ namespace PatternBase
 {
     public class ObserverForm : Form
     {
-         protected ObservableForm receiver;
-         public void Updater() { }
+        protected bool exitform = false;
+        protected ObservableForm receiver;
+        public void Updater() { }
+
+        public void ForceClose()
+        {
+            this.exitform = true;
+            this.Close();
+        }
     }
 }

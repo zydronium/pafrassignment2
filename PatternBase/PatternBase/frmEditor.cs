@@ -95,14 +95,14 @@ namespace PatternBase
         private void btnNewScope_Click(object sender, EventArgs e)
         {
             Program.frmNewScope = new FrmNewScope(this);
-            this.Attach(Program.frmNewPurpose);
+            this.Attach(Program.frmNewScope);
             Program.frmNewScope.Show();
         }
 
         private void btnNewPattern_Click(object sender, EventArgs e)
         {
             Program.frmNewPattern = new FrmNewPattern(this);
-            this.Attach(Program.frmNewPurpose);
+            this.Attach(Program.frmNewPattern);
             Program.frmNewPattern.Show();
         }
 
@@ -329,6 +329,11 @@ namespace PatternBase
             Program.frmNewPattern.editPattern = pattern;
             Program.frmNewPattern.showScreen = true;
             Program.frmNewPattern.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.ForceCloseObservers();
         }
     }
 }

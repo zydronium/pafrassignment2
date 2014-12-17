@@ -14,7 +14,6 @@ namespace PatternBase
 {
     public partial class FrmNewScope : ObserverForm
     {
-        private bool exitform = false;
         public bool editScreen = false;
         public Scope editScope;
 

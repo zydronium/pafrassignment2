@@ -16,7 +16,6 @@ namespace PatternBase
 {
     public partial class FrmNewPattern : ObserverForm
     {
-        private bool exitform = false;
         private OpenFileDialog openFileDialog;
         public bool editScreen = false;
         public bool showScreen = false;
