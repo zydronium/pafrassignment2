@@ -181,6 +181,21 @@ namespace PatternBase
             {
                 btnDelete.Visible = false;
             }
+
+            if (showScreen)
+            {
+                btnDelete.Visible = false;
+                btnAdd.Visible = false;
+                btnBrowse.Visible = false;
+                txtBrowse.Visible = false;
+                btnCancel.Text = "Close";
+                exitform = true;
+                txtName.ReadOnly = true;
+                txtDescription.ReadOnly = true;
+                txtProblem.ReadOnly = true;
+                txtConsequence.ReadOnly = true;
+                txtSolution.ReadOnly = true;
+            }
         }
 
         private void fetchSubCategories(Scope sco, string prefix)
