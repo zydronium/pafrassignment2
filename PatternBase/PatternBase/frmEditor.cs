@@ -279,7 +279,12 @@ namespace PatternBase
             this.lbProblems.Items.Clear();
             foreach (Pattern pattern in plist)
             {
-                lbProblems.Items.Add(pattern.getProblem());
+                KeyValue keyValue = new KeyValue();
+                keyValue.key = pattern.getId().ToString();
+                keyValue.value = pattern.getProblem();
+                lbProblems.DisplayMember = "value";
+                lbProblems.ValueMember = "key";
+                lbProblems.Items.Add(keyValue);
             }
         }
 
@@ -305,9 +310,25 @@ namespace PatternBase
             this.lbProblems.Items.Clear();
             foreach (Pattern pattern in plist)
             {
-                lbProblems.Items.Add(pattern.getProblem());
+                KeyValue keyValue = new KeyValue();
+                keyValue.key = pattern.getId().ToString();
+                keyValue.value = pattern.getProblem();
+                lbProblems.DisplayMember = "value";
+                lbProblems.ValueMember = "key";
+                lbProblems.Items.Add(keyValue);
             }
 
+        }
+
+        private void lbProblems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KeyValue item = (KeyValue)this.lbProblems.SelectedItem;
+            Pattern pattern = Program.database.getPatternById(Convert.ToInt32(item.key));
+            Program.frmNewPattern = new FrmNewPattern(this);
+            Program.frmNewPattern.editScreen = true;
+            Program.frmNewPattern.editPattern = pattern;
+            Program.frmNewPattern.showScreen = true;
+            Program.frmNewPattern.Show();
         }
     }
 }

@@ -202,5 +202,4 @@ namespace PatternBase.Model
             hasScope = new List<Ids>();
         }
     }
-
 }

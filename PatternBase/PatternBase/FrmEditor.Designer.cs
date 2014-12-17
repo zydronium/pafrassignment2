@@ -159,6 +159,7 @@
             this.lbProblems.Name = "lbProblems";
             this.lbProblems.Size = new System.Drawing.Size(414, 199);
             this.lbProblems.TabIndex = 28;
+            this.lbProblems.SelectedIndexChanged += new System.EventHandler(this.lbProblems_SelectedIndexChanged);
             // 
             // label10
             // 

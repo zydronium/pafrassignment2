@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Objects\Problem.cs" />
     <Compile Include="ObserverForm.cs">
       <SubType>Form</SubType>
     </Compile>
