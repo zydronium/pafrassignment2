@@ -80,6 +80,7 @@ namespace PatternBase
 
                 KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
                 Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
+                purpose.setParentId(parent.getId());
                 parent.AddSubComponent(purpose);
             }
 
@@ -135,7 +136,12 @@ namespace PatternBase
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            Purpose parent = Program.database.getPurposeById(editPurpose.getParentId());
+            parent.RemoveSubComponent(editPurpose);
 
+            this.receiver.Updater();
+            exitform = true;
+            this.Close();
         }
         
 

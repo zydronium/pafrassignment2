@@ -70,6 +70,7 @@ namespace PatternBase
 
                 KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
                 Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
+                scope.setParentId(parent.getId());
                 parent.AddSubComponent(scope);
             }
 
@@ -124,7 +125,12 @@ namespace PatternBase
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            Scope parent = Program.database.getScopeById(editScope.getParentId());
+            parent.RemoveSubComponent(editScope);
 
+            this.receiver.Updater();
+            exitform = true;
+            this.Close();
         }
     }
 }

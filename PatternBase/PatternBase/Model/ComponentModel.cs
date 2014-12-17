@@ -11,6 +11,17 @@ namespace PatternBase.Model
         public string name;
         public string description;
         public int id;
+        public int parentId;
+
+        public int getParentId()
+        {
+            return parentId;
+        }
+
+        public void setParentId(int i)
+        {
+            parentId = i;
+        }
 
         public string getName()
         {

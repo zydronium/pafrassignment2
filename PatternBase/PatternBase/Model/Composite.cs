@@ -10,17 +10,6 @@ namespace PatternBase.Model
     public class Composite : ComponentModel
     {
         public List<ComponentModel> subcomponents = new List<ComponentModel>();
-        public int parentId;
-
-        public int getParentId()
-        {
-            return parentId;
-        }
-
-        public void setParentId(int i)
-        {
-            parentId = i;
-        }
 
         public void AddSubComponent(ComponentModel cat)
         {
