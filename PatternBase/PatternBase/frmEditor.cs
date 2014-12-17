@@ -180,26 +180,49 @@ namespace PatternBase
             }
         }
 
-        private void fetchSubPatterns(Composite compo)
+        private List<Pattern> fetchSubPatterns(Composite compo, List<Pattern> list)
         {
             foreach (ComponentModel component in compo.getSubComponents())
             {
                 if (component.GetType() == typeof(Pattern))
                 {
-                    plist.Add(component);
+                    Pattern pattern = Program.database.getPatternById(component.getId());
+                    list.Add(pattern);
                 }
                 else
                 {
-                    this.fetchSubPatterns((Composite)component);
+                    this.fetchSubPatterns((Composite)component, list);
                 }
             }
-            
-
-            //plist.Add();
+            return list;
         }
 
+        private List<Pattern> fetchSharedPattern(Purpose purpose, Scope scope)
+        {
+            List<Pattern> returnList = new List<Pattern>();
+            List<Pattern> aList = new List<Pattern>();
+            List<Pattern> bList = new List<Pattern>();
 
-        public override void Updater() 
+            aList = this.fetchSubPatterns(purpose, aList);
+            bList = this.fetchSubPatterns(scope, bList);
+
+            foreach (Pattern pattern in aList)
+            {
+                Pattern patternA = pattern;
+                foreach (Pattern pattern2 in bList)
+                {
+                    Pattern patternB = pattern2;
+                    if (patternA.getId() == patternB.getId())
+                    {
+                        returnList.Add(patternA);
+                    }
+                }
+            }
+            return new List<Pattern>();
+
+        }
+
+        public override void Updater()
         {
             this.loadElements();
         }
@@ -238,8 +261,8 @@ namespace PatternBase
         {
             KeyValue item = (KeyValue)lbPurpose.SelectedItem;
             Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
-            plist = new List<ComponentModel>();
-            this.fetchSubPatterns(purpose);
+            List<Pattern> plist = new List<Pattern>();
+            plist = this.fetchSubPatterns(purpose, plist);
             /*
             foreach (ComponentModel compMod in purpose.getSubComponents())
             {
@@ -252,8 +275,8 @@ namespace PatternBase
             this.lbProblems.Items.Clear();
             foreach (Pattern pattern in plist)
             {
-                Pattern pat = Program.database.getPatternById(pattern.getId());
-                lbProblems.Items.Add(pat.getProblem());
+                //   Pattern pat = Program.database.getPatternById(pattern.getId());
+                lbProblems.Items.Add(pattern.getProblem());
             }
         }
     }
