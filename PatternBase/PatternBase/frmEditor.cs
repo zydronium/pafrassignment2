@@ -18,6 +18,7 @@ namespace PatternBase
         private bool exitform = false;
         private FolderBrowserDialog folderBrowserDialog;
         private SaveFileDialog saveFileDialog;
+        private List<ComponentModel> plist = new List<ComponentModel>();
 
         public FrmEditor()
         {
@@ -179,6 +180,24 @@ namespace PatternBase
             }
         }
 
+        private void fetchSubPatterns(Composite compo)
+        {
+            foreach (ComponentModel component in compo.getSubComponents())
+            {
+                if (component.GetType() == typeof(Pattern))
+                {
+                    plist.Add(component);
+                }
+                else
+                {
+                    this.fetchSubPatterns((Composite)component);
+                }
+            }
+            
+
+            //plist.Add();
+        }
+
 
         public override void Updater() 
         {
@@ -219,7 +238,9 @@ namespace PatternBase
         {
             KeyValue item = (KeyValue)lbPurpose.SelectedItem;
             Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
-            List<Pattern> plist = new List<Pattern>();
+            plist = new List<ComponentModel>();
+            this.fetchSubPatterns(purpose);
+            /*
             foreach (ComponentModel compMod in purpose.getSubComponents())
             {
                 if (compMod.GetType() == typeof(Pattern))
@@ -227,10 +248,12 @@ namespace PatternBase
                    // this.fetchSubCategories((Purpose)pur, "- " + prefix, lbox);
                     plist.Add(Program.database.getPatternById(compMod.getId()));
                 }
-            }
+            }*/
+            this.lbProblems.Items.Clear();
             foreach (Pattern pattern in plist)
             {
-                lbProblems.Items.Add(pattern.getProblem());
+                Pattern pat = Program.database.getPatternById(pattern.getId());
+                lbProblems.Items.Add(pat.getProblem());
             }
         }
     }
