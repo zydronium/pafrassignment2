@@ -218,7 +218,7 @@ namespace PatternBase
                     }
                 }
             }
-            return new List<Pattern>();
+            return returnList;
 
         }
 
@@ -259,25 +259,55 @@ namespace PatternBase
 
         private void lbPurpose_SelectedIndexChanged(object sender, EventArgs e)
         {
-            KeyValue item = (KeyValue)lbPurpose.SelectedItem;
-            Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
             List<Pattern> plist = new List<Pattern>();
-            plist = this.fetchSubPatterns(purpose, plist);
-            /*
-            foreach (ComponentModel compMod in purpose.getSubComponents())
+            if (this.lbScope.SelectedIndex == -1)
             {
-                if (compMod.GetType() == typeof(Pattern))
-                {
-                   // this.fetchSubCategories((Purpose)pur, "- " + prefix, lbox);
-                    plist.Add(Program.database.getPatternById(compMod.getId()));
-                }
-            }*/
+                KeyValue item = (KeyValue)lbPurpose.SelectedItem;
+                Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
+                plist = this.fetchSubPatterns(purpose, plist);
+            }
+            else
+            {
+                KeyValue item = (KeyValue)lbPurpose.SelectedItem;
+                KeyValue item2 = (KeyValue)lbScope.SelectedItem;
+                Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
+                Scope scope = Program.database.getScopeById(Convert.ToInt32(item2.key));
+                plist = this.fetchSharedPattern(purpose, scope);
+            }
+
+
             this.lbProblems.Items.Clear();
             foreach (Pattern pattern in plist)
             {
-                //   Pattern pat = Program.database.getPatternById(pattern.getId());
                 lbProblems.Items.Add(pattern.getProblem());
             }
+        }
+
+        private void lbScope_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Pattern> plist = new List<Pattern>();
+            if (this.lbPurpose.SelectedIndex == -1)
+            {
+                KeyValue item = (KeyValue)lbScope.SelectedItem;
+                Scope scope = Program.database.getScopeById(Convert.ToInt32(item.key));
+                plist = this.fetchSubPatterns(scope, plist);
+            }
+            else
+            {
+                KeyValue item = (KeyValue)lbPurpose.SelectedItem;
+                KeyValue item2 = (KeyValue)lbScope.SelectedItem;
+                Purpose purpose = Program.database.getPurposeById(Convert.ToInt32(item.key));
+                Scope scope = Program.database.getScopeById(Convert.ToInt32(item2.key));
+                plist = this.fetchSharedPattern(purpose, scope);
+            }
+
+
+            this.lbProblems.Items.Clear();
+            foreach (Pattern pattern in plist)
+            {
+                lbProblems.Items.Add(pattern.getProblem());
+            }
+
         }
     }
 }

@@ -141,6 +141,7 @@
             this.lbScope.Name = "lbScope";
             this.lbScope.Size = new System.Drawing.Size(205, 173);
             this.lbScope.TabIndex = 27;
+            this.lbScope.SelectedIndexChanged += new System.EventHandler(this.lbScope_SelectedIndexChanged);
             // 
             // label9
             // 
