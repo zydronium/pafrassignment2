@@ -189,6 +189,7 @@ namespace PatternBase
                 btnBrowse.Visible = false;
                 txtBrowse.Visible = false;
                 btnCancel.Text = "Close";
+                this.Text = "Show Pattern";
                 exitform = true;
                 txtName.ReadOnly = true;
                 txtDescription.ReadOnly = true;
