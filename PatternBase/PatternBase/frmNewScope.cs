@@ -22,6 +22,7 @@ namespace PatternBase
             InitializeComponent();
             this.receiver = reference;
             this.FormClosing += this.FrmNewScope_FormClosing;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckKeys);
         }
 
         private void FrmNewScope_FormClosing(Object sender, FormClosingEventArgs e)
@@ -52,30 +53,47 @@ namespace PatternBase
             }
         }
 
+        private void CheckKeys(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.btnAdd_Click(sender, e);
+            }
+        }
+
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (editScreen)
+            if (txtName.Text != "")
             {
-                editScope.setName(txtName.Text);
-                editScope.setDescription(txtDescription.Text);
+                if (editScreen)
+                {
+                    editScope.setName(txtName.Text);
+                    editScope.setDescription(txtDescription.Text);
+                }
+                else
+                {
+                    btnDelete.Visible = false;
+                    Scope scope = new Scope();
+                    scope.setName(txtName.Text);
+                    scope.setDescription(txtDescription.Text);
+                    scope.setId(Program.database.getId());
+
+                    KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
+                    Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
+                    scope.setParentId(parent.getId());
+                    parent.AddSubComponent(scope);
+                }
+
+                this.receiver.Updater();
+                exitform = true;
+                this.Close();
             }
             else
             {
-                btnDelete.Visible = false;
-                Scope scope = new Scope();
-                scope.setName(txtName.Text);
-                scope.setDescription(txtDescription.Text);
-                scope.setId(Program.database.getId());
-
-                KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
-                Scope parent = Program.database.getScopeById(Convert.ToInt32(parentItem.key));
-                scope.setParentId(parent.getId());
-                parent.AddSubComponent(scope);
+                string message = "Het naamveld mag niet leeg zijn!";
+                MessageBox.Show(message, "Foutmelding", MessageBoxButtons.OK);
             }
-
-            this.receiver.Updater();
-            exitform = true;
-            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

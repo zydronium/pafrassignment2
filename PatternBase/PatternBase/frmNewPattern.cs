@@ -36,6 +36,8 @@ namespace PatternBase
                 "All files (*.*)|*.*";
 
             this.openFileDialog.Title = "Browse image";
+
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckKeys);
         }
 
         private void FrmNewPattern_FormClosing(Object sender, FormClosingEventArgs e)
@@ -66,62 +68,96 @@ namespace PatternBase
             }
         }
 
+        private void CheckKeys(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.btnAdd_Click(sender, e);
+            }
+        }
+
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Pattern patternId = new Pattern();
-            Pattern pattern = new Pattern();
-            if (editScreen)
+            if (txtName.Text != "")
             {
-                foreach (Scope scope in editPattern.getScopeList())
+                if (txtProblem.Text != "")
                 {
-                    ComponentModel patternForRemove;
-                    patternForRemove = scope.GetSubComponentById(editPattern.getId());
-                    scope.RemoveSubComponent(patternForRemove);
-                }
-                foreach (Purpose purpose in editPattern.getPurposeList())
-                {
-                    ComponentModel patternForRemove;
-                    patternForRemove = purpose.GetSubComponentById(editPattern.getId());
-                    purpose.RemoveSubComponent(patternForRemove);
-                }
+                    if (lbParrentPurpose.SelectedIndex != -1 && lbParrentScope.SelectedIndex != -1)
+                    {
+                        Pattern patternId = new Pattern();
+                        Pattern pattern = new Pattern();
+                        if (editScreen)
+                        {
+                            foreach (Scope scope in editPattern.getScopeList())
+                            {
+                                ComponentModel patternForRemove;
+                                patternForRemove = scope.GetSubComponentById(editPattern.getId());
+                                scope.RemoveSubComponent(patternForRemove);
+                            }
+                            foreach (Purpose purpose in editPattern.getPurposeList())
+                            {
+                                ComponentModel patternForRemove;
+                                patternForRemove = purpose.GetSubComponentById(editPattern.getId());
+                                purpose.RemoveSubComponent(patternForRemove);
+                            }
 
-                editPattern.cleanPurpose();
-                editPattern.cleanScope();
-                pattern = editPattern;
+                            editPattern.cleanPurpose();
+                            editPattern.cleanScope();
+                            pattern = editPattern;
+                        }
+                        else
+                        {
+                            pattern.setId(Program.database.getId());
+                            Program.database.addPattern(pattern);
+                        }
+
+                        pattern.setName(txtName.Text);
+                        pattern.setDescription(txtDescription.Text);
+                        pattern.setProblem(txtProblem.Text);
+                        pattern.setConsequence(txtConsequence.Text);
+                        pattern.setSolution(txtSolution.Text);
+                        patternId.setId(pattern.getId());
+                        pattern.setImage(pbImage.Image);
+
+                        foreach (KeyValue parentItemPurpose in lbParrentPurpose.SelectedItems)
+                        {
+                            Purpose parentPurpose = Program.database.getPurposeById(Convert.ToInt32(parentItemPurpose.key));
+                            pattern.addPurpose(parentPurpose);
+                            if (parentPurpose != null)
+                                parentPurpose.AddSubComponent(patternId);
+                        }
+
+                        foreach (KeyValue parentItemScope in lbParrentScope.SelectedItems)
+                        {
+                            Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
+                            pattern.addScope(parentScope);
+                            if (parentScope != null)
+                                parentScope.AddSubComponent(patternId);
+                        }
+
+                        this.receiver.Updater();
+                        exitform = true;
+                        this.Close();
+                    }
+                    else
+                    {
+                        string message = "Je moet mininaal 1 Parent Purpose en Parent Scope kiezen!";
+                        MessageBox.Show(message, "Foutmelding", MessageBoxButtons.OK);
+                    }
+                }
+                else
+                {
+                    string message = "Het probleemveld mag niet leeg zijn!";
+                    MessageBox.Show(message, "Foutmelding", MessageBoxButtons.OK);
+
+                }
             }
             else
             {
-                pattern.setId(Program.database.getId());
-                Program.database.addPattern(pattern);
+                string message = "Het naamveld mag niet leeg zijn!";
+                MessageBox.Show(message, "Foutmelding", MessageBoxButtons.OK);
             }
-
-            pattern.setName(txtName.Text);
-            pattern.setDescription(txtDescription.Text);
-            pattern.setProblem(txtProblem.Text);
-            pattern.setConsequence(txtConsequence.Text);
-            pattern.setSolution(txtSolution.Text);
-            patternId.setId(pattern.getId());
-            pattern.setImage(pbImage.Image);
-
-            foreach (KeyValue parentItemPurpose in lbParrentPurpose.SelectedItems)
-            {
-                Purpose parentPurpose = Program.database.getPurposeById(Convert.ToInt32(parentItemPurpose.key));
-                pattern.addPurpose(parentPurpose);
-                if(parentPurpose != null)
-                parentPurpose.AddSubComponent(patternId);
-            }
-
-            foreach (KeyValue parentItemScope in lbParrentScope.SelectedItems)
-            {
-                Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
-                pattern.addScope(parentScope);
-                if (parentScope != null)
-                parentScope.AddSubComponent(patternId);
-            }
-
-            this.receiver.Updater();
-            exitform = true;
-            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -206,7 +242,8 @@ namespace PatternBase
             lbParrentScope.Items.Add(keyValue);
             foreach (ComponentModel sc in sco.getSubComponents())
             {
-                if (sc.GetType() == typeof(Scope)) {
+                if (sc.GetType() == typeof(Scope))
+                {
                     this.fetchSubCategories((Scope)sc, "- " + prefix);
                 }
             }
@@ -220,7 +257,8 @@ namespace PatternBase
             lbParrentPurpose.Items.Add(keyValue);
             foreach (ComponentModel pur in purp.getSubComponents())
             {
-                if (pur.GetType() == typeof(Purpose)) {
+                if (pur.GetType() == typeof(Purpose))
+                {
                     this.fetchSubCategories((Purpose)pur, "- " + prefix);
                 }
             }
@@ -277,14 +315,14 @@ namespace PatternBase
                     ComponentModel patternForRemove;
                     patternForRemove = scope.GetSubComponentById(editPattern.getId());
                     if (patternForRemove != null)
-                    scope.RemoveSubComponent(patternForRemove);
+                        scope.RemoveSubComponent(patternForRemove);
                 }
                 foreach (Purpose purpose in editPattern.getPurposeList())
                 {
                     ComponentModel patternForRemove;
                     patternForRemove = purpose.GetSubComponentById(editPattern.getId());
                     if (patternForRemove != null)
-                    purpose.RemoveSubComponent(patternForRemove);
+                        purpose.RemoveSubComponent(patternForRemove);
                 }
 
                 editPattern.cleanPurpose();

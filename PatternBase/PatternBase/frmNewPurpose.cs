@@ -64,28 +64,37 @@ namespace PatternBase
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (editScreen)
+            if (txtName.Text != "")
             {
-                editPurpose.setName(txtName.Text);
-                editPurpose.setDescription(txtDescription.Text);
+                if (editScreen)
+                {
+                    editPurpose.setName(txtName.Text);
+                    editPurpose.setDescription(txtDescription.Text);
+                }
+                else
+                {
+                    btnDelete.Visible = false;
+                    Purpose purpose = new Purpose();
+                    purpose.setName(txtName.Text);
+                    purpose.setDescription(txtDescription.Text);
+                    purpose.setId(Program.database.getId());
+
+                    KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
+                    Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
+                    purpose.setParentId(parent.getId());
+                    parent.AddSubComponent(purpose);
+
+
+                }
+                this.receiver.Updater();
+                exitform = true;
+                this.Close();
             }
             else
             {
-                btnDelete.Visible = false;
-                Purpose purpose = new Purpose();
-                purpose.setName(txtName.Text);
-                purpose.setDescription(txtDescription.Text);
-                purpose.setId(Program.database.getId());
-
-                KeyValue parentItem = (KeyValue)cbbParrent.SelectedItem;
-                Purpose parent = Program.database.getPurposeById(Convert.ToInt32(parentItem.key));
-                purpose.setParentId(parent.getId());
-                parent.AddSubComponent(purpose);
+                string message = "Het naamveld mag niet leeg zijn!";
+                MessageBox.Show(message, "Foutmelding", MessageBoxButtons.OK);
             }
-
-            this.receiver.Updater();
-            exitform = true;
-            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -146,7 +155,7 @@ namespace PatternBase
             exitform = true;
             this.Close();
         }
-        
+
 
     }
 }
