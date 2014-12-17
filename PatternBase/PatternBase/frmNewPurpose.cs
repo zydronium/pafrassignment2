@@ -116,6 +116,10 @@ namespace PatternBase
                     btnDelete.Visible = false;
                 }
             }
+            else
+            {
+                btnDelete.Visible = false;
+            }
         }
 
         private void fetchSubCategories(Purpose purp, string prefix)

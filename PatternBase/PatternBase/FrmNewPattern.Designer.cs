@@ -47,24 +47,26 @@
             this.txtSolution = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(93, 623);
+            this.btnCancel.Location = new System.Drawing.Point(360, 426);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 35;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 623);
+            this.btnAdd.Location = new System.Drawing.Point(279, 426);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -72,7 +74,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 425);
+            this.label1.Location = new System.Drawing.Point(276, 195);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 23;
@@ -85,7 +87,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescription.Size = new System.Drawing.Size(259, 74);
-            this.txtDescription.TabIndex = 22;
+            this.txtDescription.TabIndex = 5;
             // 
             // label6
             // 
@@ -101,7 +103,7 @@
             this.txtName.Location = new System.Drawing.Point(12, 25);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(259, 20);
-            this.txtName.TabIndex = 20;
+            this.txtName.TabIndex = 4;
             // 
             // label3
             // 
@@ -115,7 +117,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 474);
+            this.label2.Location = new System.Drawing.Point(276, 244);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 25;
@@ -124,35 +126,35 @@
             // lbParrentPurpose
             // 
             this.lbParrentPurpose.FormattingEnabled = true;
-            this.lbParrentPurpose.Location = new System.Drawing.Point(12, 441);
+            this.lbParrentPurpose.Location = new System.Drawing.Point(279, 211);
             this.lbParrentPurpose.Name = "lbParrentPurpose";
             this.lbParrentPurpose.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbParrentPurpose.Size = new System.Drawing.Size(259, 30);
-            this.lbParrentPurpose.TabIndex = 26;
+            this.lbParrentPurpose.TabIndex = 29;
             // 
             // lbParrentScope
             // 
             this.lbParrentScope.FormattingEnabled = true;
-            this.lbParrentScope.Location = new System.Drawing.Point(12, 490);
+            this.lbParrentScope.Location = new System.Drawing.Point(279, 260);
             this.lbParrentScope.Name = "lbParrentScope";
             this.lbParrentScope.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbParrentScope.Size = new System.Drawing.Size(259, 30);
-            this.lbParrentScope.TabIndex = 27;
+            this.lbParrentScope.TabIndex = 31;
             // 
             // txtBrowse
             // 
-            this.txtBrowse.Location = new System.Drawing.Point(13, 577);
+            this.txtBrowse.Location = new System.Drawing.Point(12, 426);
             this.txtBrowse.Name = "txtBrowse";
             this.txtBrowse.ReadOnly = true;
             this.txtBrowse.Size = new System.Drawing.Size(100, 20);
-            this.txtBrowse.TabIndex = 28;
+            this.txtBrowse.TabIndex = 26;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(120, 577);
+            this.btnBrowse.Location = new System.Drawing.Point(119, 426);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 29;
+            this.btnBrowse.TabIndex = 22;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -173,21 +175,21 @@
             this.txtProblem.Name = "txtProblem";
             this.txtProblem.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtProblem.Size = new System.Drawing.Size(259, 74);
-            this.txtProblem.TabIndex = 31;
+            this.txtProblem.TabIndex = 20;
             // 
             // txtConsequence
             // 
-            this.txtConsequence.Location = new System.Drawing.Point(12, 348);
+            this.txtConsequence.Location = new System.Drawing.Point(279, 118);
             this.txtConsequence.Multiline = true;
             this.txtConsequence.Name = "txtConsequence";
             this.txtConsequence.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtConsequence.Size = new System.Drawing.Size(259, 74);
-            this.txtConsequence.TabIndex = 33;
+            this.txtConsequence.TabIndex = 28;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 332);
+            this.label5.Location = new System.Drawing.Point(278, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 32;
@@ -195,17 +197,17 @@
             // 
             // txtSolution
             // 
-            this.txtSolution.Location = new System.Drawing.Point(12, 255);
+            this.txtSolution.Location = new System.Drawing.Point(279, 25);
             this.txtSolution.Multiline = true;
             this.txtSolution.Name = "txtSolution";
             this.txtSolution.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtSolution.Size = new System.Drawing.Size(259, 74);
-            this.txtSolution.TabIndex = 35;
+            this.txtSolution.TabIndex = 27;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 239);
+            this.label7.Location = new System.Drawing.Point(277, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 34;
@@ -213,7 +215,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(174, 623);
+            this.btnDelete.Location = new System.Drawing.Point(441, 426);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 36;
@@ -221,11 +223,20 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 244);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(258, 176);
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmNewPattern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 657);
+            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtSolution);
             this.Controls.Add(this.label7);
@@ -248,6 +259,7 @@
             this.Name = "FrmNewPattern";
             this.Text = "New Pattern";
             this.Load += new System.EventHandler(this.FrmNewPattern_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +286,6 @@
         private System.Windows.Forms.TextBox txtSolution;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

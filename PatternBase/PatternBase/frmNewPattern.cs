@@ -198,6 +198,10 @@ namespace PatternBase
                 editPattern.cleanPurpose();
                 editPattern.cleanScope();
                 Program.database.removePattern(editPattern);
+
+                this.receiver.Updater();
+                exitform = true;
+                this.Close();
             }
         }
     }

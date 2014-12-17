@@ -105,6 +105,10 @@ namespace PatternBase
                     btnDelete.Visible = false;
                 }
             }
+            else
+            {
+                btnDelete.Visible = false;
+            }
         }
 
         private void fetchSubCategories(Scope sco, string prefix)

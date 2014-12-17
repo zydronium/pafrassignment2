@@ -44,7 +44,7 @@
             this.btnAdd.Location = new System.Drawing.Point(13, 226);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 0;
+            this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -54,7 +54,7 @@
             this.btnCancel.Location = new System.Drawing.Point(94, 226);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -64,7 +64,7 @@
             this.txtName.Location = new System.Drawing.Point(15, 25);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(259, 20);
-            this.txtName.TabIndex = 11;
+            this.txtName.TabIndex = 0;
             // 
             // label3
             // 
@@ -82,7 +82,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescription.Size = new System.Drawing.Size(259, 74);
-            this.txtDescription.TabIndex = 14;
+            this.txtDescription.TabIndex = 1;
             // 
             // label6
             // 
@@ -100,7 +100,7 @@
             this.cbbParrent.Location = new System.Drawing.Point(15, 158);
             this.cbbParrent.Name = "cbbParrent";
             this.cbbParrent.Size = new System.Drawing.Size(259, 21);
-            this.cbbParrent.TabIndex = 18;
+            this.cbbParrent.TabIndex = 11;
             // 
             // lblParent
             // 
