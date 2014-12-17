@@ -110,6 +110,10 @@ namespace PatternBase
                 txtDescription.Text = editPurpose.getDescription();
                 lblParent.Visible = false;
                 cbbParrent.Visible = false;
+                if (editPurpose.getId() == 2)
+                {
+                    btnDelete.Visible = false;
+                }
             }
         }
 

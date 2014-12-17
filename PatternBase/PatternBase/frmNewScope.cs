@@ -99,6 +99,10 @@ namespace PatternBase
                 txtDescription.Text = editScope.getDescription();
                 lblParent.Visible = false;
                 cbbParrent.Visible = false;
+                if (editScope.getId() == 1)
+                {
+                    btnDelete.Visible = false;
+                }
             }
         }
 

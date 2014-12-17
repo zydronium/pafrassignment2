@@ -176,7 +176,25 @@ namespace PatternBase
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (editScreen)
+            {
+                foreach (Scope scope in editPattern.getScopeList())
+                {
+                    ComponentModel patternForRemove;
+                    patternForRemove = scope.GetSubComponentById(editPattern.getId());
+                    scope.RemoveSubComponent(patternForRemove);
+                }
+                foreach (Purpose purpose in editPattern.getPurposeList())
+                {
+                    ComponentModel patternForRemove;
+                    patternForRemove = purpose.GetSubComponentById(editPattern.getId());
+                    purpose.RemoveSubComponent(patternForRemove);
+                }
 
+                editPattern.cleanPurpose();
+                editPattern.cleanScope();
+                Program.database.removePattern(editPattern);
+            }
         }
     }
 }
