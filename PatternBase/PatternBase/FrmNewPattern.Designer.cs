@@ -47,8 +47,8 @@
             this.txtSolution = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -223,20 +223,20 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // pictureBox1
+            // pbImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 244);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(258, 176);
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
+            this.pbImage.Location = new System.Drawing.Point(12, 244);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(258, 176);
+            this.pbImage.TabIndex = 37;
+            this.pbImage.TabStop = false;
             // 
             // FrmNewPattern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 461);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbImage);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtSolution);
             this.Controls.Add(this.label7);
@@ -259,7 +259,7 @@
             this.Name = "FrmNewPattern";
             this.Text = "New Pattern";
             this.Load += new System.EventHandler(this.FrmNewPattern_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,6 +286,6 @@
         private System.Windows.Forms.TextBox txtSolution;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbImage;
     }
 }

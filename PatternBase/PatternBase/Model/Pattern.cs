@@ -2,9 +2,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace PatternBase.Model
 {
@@ -15,6 +20,37 @@ namespace PatternBase.Model
         public string consequence;
         public List<Ids> hasPurpose = new List<Ids>();
         public List<Ids> hasScope = new List<Ids>();
+        [XmlIgnore]
+        public Image image { get; set; }
+
+        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlElement("image")]
+        public byte[] imageSerialized
+        {
+            get
+            { // serialize
+                if (image == null) return null;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    image.Save(ms, ImageFormat.Bmp);
+                    return ms.ToArray();
+                }
+            }
+            set
+            { // deserialize
+                if (value == null)
+                {
+                    image = null;
+                }
+                else
+                {
+                    using (MemoryStream ms = new MemoryStream(value))
+                    {
+                        image = new Bitmap(ms);
+                    }
+                }
+            }
+        }
 
         public string getProblem()
         {
@@ -44,6 +80,16 @@ namespace PatternBase.Model
         public void setConsequence(string cons)
         {
             consequence = cons;
+        }
+
+        public Image getImage()
+        {
+            return image;
+        }
+
+        public void setImage(Image img)
+        {
+            image = img;
         }
 
         public List<Purpose> getPurposeList()
