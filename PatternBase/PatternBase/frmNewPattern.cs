@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -197,7 +198,15 @@ namespace PatternBase
                     {
                         txtBrowse.Text = file;
                         Image loadedImage = Image.FromFile(file);
-                        pbImage.Image = loadedImage;
+                        Bitmap newImage = new Bitmap(258, 176);
+                        using (Graphics gr = Graphics.FromImage(newImage))
+                        {
+                            gr.SmoothingMode = SmoothingMode.HighQuality;
+                            gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                            gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                            gr.DrawImage(loadedImage, new Rectangle(0, 0, 258, 176));
+                        }
+                        pbImage.Image = newImage;
                     }
                     catch (SecurityException ex)
                     {
