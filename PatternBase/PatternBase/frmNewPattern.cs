@@ -95,6 +95,7 @@ namespace PatternBase
             {
                 Purpose parentPurpose = Program.database.getPurposeById(Convert.ToInt32(parentItemPurpose.key));
                 pattern.addPurpose(parentPurpose);
+                if(parentPurpose != null)
                 parentPurpose.AddSubComponent(patternId);
             }
 
@@ -102,6 +103,7 @@ namespace PatternBase
             {
                 Scope parentScope = Program.database.getScopeById(Convert.ToInt32(parentItemScope.key));
                 pattern.addScope(parentScope);
+                if (parentScope != null)
                 parentScope.AddSubComponent(patternId);
             }
 
@@ -182,12 +184,14 @@ namespace PatternBase
                 {
                     ComponentModel patternForRemove;
                     patternForRemove = scope.GetSubComponentById(editPattern.getId());
+                    if (patternForRemove != null)
                     scope.RemoveSubComponent(patternForRemove);
                 }
                 foreach (Purpose purpose in editPattern.getPurposeList())
                 {
                     ComponentModel patternForRemove;
                     patternForRemove = purpose.GetSubComponentById(editPattern.getId());
+                    if (patternForRemove != null)
                     purpose.RemoveSubComponent(patternForRemove);
                 }
 
