@@ -131,7 +131,7 @@ namespace PatternBase.Model
             hasPurpose.Add(ids);
         }
 
-        public void removePurpose(Scope purp)
+        public void removePurpose(Purpose purp)
         {
             foreach (Ids ids in hasPurpose)
             {
